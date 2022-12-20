@@ -1,56 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import Home from "./Components/Home/Home";
+import About from "./Components/About/About";
+import Blog from "./Components/Blog/Blog";
+import SignIn from "./Components/LogIn/SignIn"
+import SignUp from "./Components/LogIn/SignUp"
+import ContactUs from "./Components/ContactUs/ContactUs"
+import CreateAnAccount from "./Components/CreateAnAccount/CreateAnAccount"
+import PurchaseATicket from "./Components/PurchaseATicket/PurchaseATicket"
+import Navbar from "./Components/Navbar/Navbar"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/blogs" element={<Blog />} />
+        <Route path="/signIn" element={<SignIn />} />
+        <Route path="/signUp" element={<SignUp />} />
+        <Route path="/contactUs" element={<ContactUs />} />
+        <Route path="/account" element={<CreateAnAccount />} />
+        <Route path="/purchase" element={<PurchaseATicket />} />
+      </Routes>
     </div>
   );
 }
