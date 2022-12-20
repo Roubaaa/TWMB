@@ -1,0 +1,30 @@
+.navBarContainer {
+    background-color: #EAF8F9;
+
+}
+
+.title {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 75px;
+}
+
+ul {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 30px;
+}
+
+li:hover {
+    color:#FEE89E;
+    text-decoration-line: underline;
+    font-weight: 700;
+}
+.press {  
+background-color: #2DD3E3;
+border-radius: 6px;
+}
