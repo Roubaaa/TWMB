@@ -44,7 +44,7 @@ export default function Footer() {
           />
           <button type="button"
             className="btn duration-300 px-5 py-2.5 font-[Poppins]
-            text-black md:w-auto w-full"
+            text-black md:w-auto "
           >
         <IoPaperPlane />
           </button>
