@@ -1,0 +1,34 @@
+.footer{
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    background-color: #FEE89E;
+}
+.search{
+    position: relative;
+border: 1px solid black;
+background: #FFFFFF;
+border-radius: 3px;
+}
+.btn{
+    margin-right: 0px;
+    border-left: 1px solid black;
+    background-color: #2DD3E3 !important;
+
+}
+.etext{
+    margin-bottom: 20px;
+}
+.uls li{
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 18px
+}
+.uls li:hover {
+    color:black;
+    font-weight: 700;
+}
+.icons{
+    margin-right: 120px;
+}
