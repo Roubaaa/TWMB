@@ -83,39 +83,7 @@ export default function Home() {
 
 
 
-<div className="w-full h-auto pl-40">
-<p className="text-4xl mt-5 pt-20   uppercase">we can communicate through</p>
-<div className="flex   mt-16 mb-10">
-<div className=" w-80 h-80 bg-white shadow-2xl shadow-gray-500 mr-5 rounded-3xl ">
-<div className="flex justify-center mt-10"><i className="fa-solid fa-phone text-7xl "/></div>
-<div className="flex justify-center mt-5">
-<p className="  text-4xl  ">Voice Call</p>
-</div>
-<div className="flex justify-center mt-5">
-<p className="  font-style  font-semibold text-md text-center 	ml-8 mr-8 ">Feeling ready to start a conversation? Give your therapist a voice call and talk your heart out!</p>
-</div>
-</div>
-<div className="w-80 h-80 bg-white shadow-2xl shadow-gray-500 mr-5 rounded-3xl center">
-<div className="flex justify-center mt-10"><i className="fa-solid fa-comments text-7xl"/></div>
-<div className="flex justify-center mt-5">
-<p className="  text-4xl  ">Chat</p>
-</div>
-<div className="flex justify-center mt-5">
-<p className="  font-style  font-semibold text-md text-center 	ml-8 mr-8 ">Need to talk to someone?<br/>Come have a chat with your<br/> therapist!</p>
-</div>
-</div>
-<div className="w-80 h-80 bg-white shadow-2xl shadow-gray-500  rounded-3xl center">
-<div className="flex justify-center mt-10"><i className="fa-solid fa-video text-7xl"/></div>
-<div className="flex justify-center mt-5">
-<p className="  text-4xl  ">Video Call</p>
-</div>
-<div className="flex justify-center mt-5">
-<p className="  font-style  font-semibold text-md text-center 	ml-8 mr-8 ">For better experience therapists recommend video calls, but always remember that its a choice!</p>
-</div>
-</div>
-</div>
 
-</div>
 
 
 </div>
