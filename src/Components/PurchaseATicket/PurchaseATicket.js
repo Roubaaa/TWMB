@@ -1,14 +1,13 @@
 import React from "react";
 import "./PurchaseATicket.css";
-// import { Link } from "react-router-dom";
+
 
 
 export default function PurchaseATicket() {
     return (
   
-        
+    
  <div className="div-tickt">
-
 
  <h2 className="text-xl sm:text-3xl title-ticket">Purchase tickets</h2>
  <p className="sm:text-lg text-[14px] p-tickt">purchase tickets that can be used to book appointments!</p>
@@ -52,6 +51,7 @@ export default function PurchaseATicket() {
     Learn More
 </button>
 </div>
+
 
 
 </div>

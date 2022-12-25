@@ -1,6 +1,6 @@
 import React from "react";
 import "./Home.css";
-import PurchaseATicket from "../PurchaseATicket/PurchaseATicket"
+import PurchaseATicket from "../PurchaseATicket/PurchaseATicket";
 
 // import { Link } from "react-router-dom";
 
