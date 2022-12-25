@@ -32,7 +32,7 @@ export default function Footer() {
     </div>
     
     <p className="etext text-gray-500">
-    We’ll never to spam you or share your email
+    We`ll never to spam you or share your email
     </p>
     <div className="searchparent sm:flex sm:items-center sm:justify-between">
     
