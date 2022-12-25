@@ -34,18 +34,14 @@ box-sizing: border-box;
 text-align: center;
 color: #000000;
 background: #FFFFFF;
-border: 1px solid #FBFBFB;
-box-shadow: 0px 4px 12px rgba(178, 171, 171, 0.25);
+
+
 border-radius: 6px;
 /* margin-right: auto; */
 margin-top: 4%;
 }
 
 .tickt h2{
-
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 400;
 
 text-align: center;
 text-transform: uppercase;
