@@ -12,6 +12,7 @@ import PurchaseATicket from "./Components/PurchaseATicket/PurchaseATicket"
 import Navbar from "./Components/Navbar/Navbar"
 import Footer from "./Components/Footer/Footer";
 
+
 function App() {
   return (
     <><div>
@@ -26,7 +27,9 @@ function App() {
         <Route path="/account" element={<CreateAnAccount />} />
         <Route path="/purchase" element={<PurchaseATicket />} />
       </Routes>
-    </div><Footer /></>
+    </div>
+  
+    <Footer /></>
   );
 }
 
