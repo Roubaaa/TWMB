@@ -8,6 +8,7 @@ import Pic4 from './homeimages/therapist3.jpg';
 import Pic5 from './homeimages/therapist4.jpg';
 import Pic6 from './homeimages/therapist5.jpg';
 import Button1 from './button';
+import PurchaseATicket from "../PurchaseATicket/PurchaseATicket";
 
 
 
@@ -82,7 +83,7 @@ export default function Home() {
 </div>
 
 
-
+<PurchaseATicket/>
 
 
 

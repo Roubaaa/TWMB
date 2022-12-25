@@ -1,0 +1,77 @@
+.div-tickt{
+    margin: 4% 12% ;
+}
+
+
+
+
+
+.title-ticket{
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+text-transform: uppercase;
+color: #000000;
+}
+.p-tickt{
+    text-transform: uppercase;
+    font-family: 'Poppins';
+font-style: normal;
+}
+
+.parent-card{
+
+    justify-content: center;
+
+}
+
+
+.tickt{
+
+box-sizing: border-box;
+
+/* width: 350px; */
+text-align: center;
+color: #000000;
+background: #FFFFFF;
+border: 1px solid #FBFBFB;
+box-shadow: 0px 4px 12px rgba(178, 171, 171, 0.25);
+border-radius: 6px;
+/* margin-right: auto; */
+margin-top: 4%;
+}
+
+.tickt h2{
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+
+text-align: center;
+text-transform: uppercase;
+color: #000000;
+}
+.tickt p{
+    margin: 5% 0;
+
+}
+.tickt button{
+    background: #2DD3E3;
+    text-transform: uppercase;
+    font-family: 'Poppins';
+
+}
+.tickt2{
+    width: 100%;
+    margin: 7% 0px;
+}
+.tickt2 h2{
+    font-weight: 400;
+}
+.tickt2 p{
+
+ color: black;
+ font-family: 'Poppins';
+ font-weight: lighter;
+ font-style: normal;
+}
