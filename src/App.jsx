@@ -18,14 +18,14 @@ function App() {
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />} /> 
         <Route path="/about" element={<About />} />
         <Route path="/blogs" element={<Blog />} />
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/contactUs" element={<ContactUs />} />
         <Route path="/account" element={<CreateAnAccount />} />
-        <Route path="/purchase" element={<PurchaseATicket />} />
+        <Route path="/purchase" element={<PurchaseATicket />} /> 
       </Routes>
   
   <Footer />

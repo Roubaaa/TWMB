@@ -34,9 +34,9 @@ export default function Footer() {
     <p className="etext text-gray-500">
     We`ll never to spam you or share your email
     </p>
-    <div className="searchparent sm:flex sm:items-center sm:justify-between border-gray-500">
+    <div className="searchparent sm:flex sm:items-center sm:justify-between ">
     
-    <div className="search flex items-center justify-between">
+    <div className="search flex items-center justify-between border-gray-500">
           <input
             type="text"
             placeholder="Enter Your e-mail"
