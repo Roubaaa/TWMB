@@ -11,9 +11,9 @@ export default function Navbar() {
 
         <div className="flex flex-row gap-x-2">
         <img src={logo} alt="logo" />
-        <h1 className="title ">Healing</h1>
+        <h1 className="title text-[20px] sm:text-[40px]">Healing</h1>
        </div>
-            <ul className ="flex flex-row justify-center items-center gap-x-8">
+            <ul className =" flex flex-row justify-center text-[15px]  items-center sm:gap-x-7 gap-x-4 sm:text-[20px] ">
                  <li>
                     <Link to ="/">Home</Link>
                 </li>
@@ -27,7 +27,7 @@ export default function Navbar() {
                     <Link to="/contactUs">Contact Us</Link>
                 </li>
                 
-                   <button type="button" className="press bg-cyan-400 rounded-md shadow-md px-5 py-1 hover:bg-cyan-600 " > <Link to="/signIn">Log In </Link> </button>
+                   <button type="button" className=" press bg-cyan-400 rounded-md shadow-md px-5 py-1 hover:bg-cyan-600 " > <Link to="/signIn">Log In </Link> </button>
                 
               
             </ul>

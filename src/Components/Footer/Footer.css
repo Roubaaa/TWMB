@@ -1,12 +1,12 @@
 .footer{
-   position: relative;
+   
     left: 0%;
     right: 0%;
     bottom: 0%;
     background-color: #FEE89E;
 }
 .search{
-    position: relative;
+ 
 border: 1px solid black;
 background: #FFFFFF;
 border-radius: 3px;
@@ -23,9 +23,7 @@ width: 30%;
 
 }
 @media screen and (max-width: 850px) {
-    .title{
-        font-size: 30px;
-    }
+
     .search{
     width: 60%;
     }
