@@ -28,7 +28,8 @@ function App() {
         <Route path="/purchase" element={<PurchaseATicket />} />
       </Routes>
   
-  <Footer /></div>
+  <Footer />
+  </div>
   );
 }
 

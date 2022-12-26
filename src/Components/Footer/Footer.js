@@ -13,9 +13,9 @@ export default function Footer() {
       
 <footer className="footer p-4  rounded-lg shadow md:px-6 md:py-8 ">
     <div className="sm:flex sm:items-center sm:justify-between">
-    <h1 className="title ">Subscribe</h1>
+    <h1 className="title">Subscribe</h1>
     
-        <ul className="uls flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
+        <ul className="uls flex flex-wrap items-center mb-6 text-m text-gray-500 sm:mb-0 dark:text-gray-400">
                <li>
                     <Link to ="/" className="mr-4  md:mr-6">Home</Link>
                 </li>
@@ -34,7 +34,7 @@ export default function Footer() {
     <p className="etext text-gray-500">
     We`ll never to spam you or share your email
     </p>
-    <div className="searchparent sm:flex sm:items-center sm:justify-between">
+    <div className="searchparent sm:flex sm:items-center sm:justify-between border-gray-500">
     
     <div className="search flex items-center justify-between">
           <input
@@ -44,7 +44,7 @@ export default function Footer() {
           />
           <button type="button"
             className="btn duration-300 px-5 py-2.5 font-[Poppins]
-            text-black md:w-auto "
+            text-black md:w-auto border-gray-500"
           >
         <IoPaperPlane />
           </button>
