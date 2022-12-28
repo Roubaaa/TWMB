@@ -5,7 +5,7 @@ import image2 from "./image6.png";
 
 function Help() {
   return (
-    <div className='flex flex-row justify-center  gap-44' style={{ backgroundImage:`url(${image})`, backgroundRepeat: 'no-repeat', height:'745px',backgroundSize:'100%',width:'1440px%'}}>
+    <div className='flex flex-wrap justify-center  gap-44' style={{ backgroundImage:`url(${image})`, backgroundRepeat: 'no-repeat', height:'745px',backgroundSize:'100%',width:'1440px%'}}>
             <div className='mt-28	'>
                 <h1 className='text-4xl font-normal	'>WE ARE HERE TO</h1>
                 <h1 className='text-9xl	font-normal	'>HELP</h1>
