@@ -83,6 +83,13 @@ export default function Home() {
 </div>
 
 
+
+<div className="slide-div w-full h-auto pl-40 ">
+<p className="font-style font-bold text-4xl mt-5 pt-20   uppercase">recent blogs</p>
+</div>
+
+
+
 <PurchaseATicket/>
 
 
