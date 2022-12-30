@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./PurchaseATicket.css";
 // import { Link } from "react-router-dom";
 
@@ -20,27 +21,31 @@ export default function PurchaseATicket() {
     <h2 className="sm:text-3xl">5 Tickets</h2>
     <p className="sm:text-2xl mb-3 font-normal text-gray-700 dark:text-gray-400">10$</p>
     
+    <Link to="/cards">
     <button type="button" className="text-[14px] sm:text-2xl text-black  py-2 px-4 rounded hover:bg-cyan-600">
     Purchase
-</button>
+</button></Link>
 </div>
 
 {/* 2nd */}
 <div className="tickt max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md ">
 <h2 className="sm:text-3xl">25 Tickets</h2>
     <p className="sm:text-2xl mb-3 font-normal text-gray-700 dark:text-gray-400">40$</p>
+
+    <Link to="/cards">
     <button type="button" className="text-[14px] sm:text-2xl text-black  py-2 px-4 rounded hover:bg-cyan-600">
     Purchase
-</button>
+</button></Link>
 </div>
 
 {/* 3rd */}
 <div className="tickt max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md ">
 <h2 className="sm:text-3xl">50 Tickets</h2>
     <p className="sm:text-2xl mb-3 font-normal text-gray-700 dark:text-gray-400">70$</p>
+    <Link to="/cards">
     <button type="button" className="text-[14px] sm:text-2xl text-black  py-2 px-4 rounded hover:bg-cyan-600">
     Purchase
-</button>
+</button></Link>
 </div>
 
 </div>

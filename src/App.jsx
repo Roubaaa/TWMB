@@ -11,6 +11,7 @@ import CreateAnAccount from "./Components/CreateAnAccount/CreateAnAccount"
 import PurchaseATicket from "./Components/PurchaseATicket/PurchaseATicket"
 import Navbar from "./Components/Navbar/Navbar"
 import Footer from "./Components/Footer/Footer";
+import SelectCards from "./Components/SelectCards/Cards"
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/contactUs" element={<ContactUs />} />
         <Route path="/account" element={<CreateAnAccount />} />
         <Route path="/purchase" element={<PurchaseATicket />} /> 
+        <Route path="/cards" element={<SelectCards/>} /> 
       </Routes>
   
   <Footer />

@@ -39,6 +39,7 @@ box-shadow: 0px 4px 12px rgba(178, 171, 171, 0.25);
 border-radius: 6px; 
 /* margin-right: auto; */
 margin-top: 4%;
+margin-left: 2%;
 }
 
 .tickt h2{
@@ -61,6 +62,7 @@ color: #000000;
     font-family: 'Poppins';
 
 }
+
 .tickt2{
     width: 100%;
     margin: 7% 0px;
@@ -75,3 +77,30 @@ color: #000000;
  font-weight: lighter;
  font-style: normal;
 }
+/* ////////////////cards////////// */
+.div-cards{
+    margin:0 7% ;
+}
+.text-cards{
+    color: rgba(0, 0, 0, 0.5);
+    
+}
+.btncard{
+    text-align: center;
+    background-color: #2DD3E3 !important;
+    text-transform: uppercase;
+    font-family: 'Poppins'; 
+}
+.cardss{
+    margin-left: 4%;
+}
+.plus{
+    display: inline;
+}
+
+@media screen and (max-width: 850px) {
+  
+  .cursor-pointer{
+    visibility: hidden;
+  }
+  }
