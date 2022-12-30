@@ -1,10 +1,13 @@
 import React from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import Dropdown from "./Dropdown"
 import logo from "./logo.png"
 
 
 export default function Navbar() {
+
+
   return (
 
        <nav className="navBarContainer flex flex-row justify-evenly" >
@@ -21,7 +24,8 @@ export default function Navbar() {
                     <Link to="/blogs">Blogs</Link>
                 </li>
                 <li>
-                    <Link to="/about">About</Link>
+                        <Dropdown/>
+            
                 </li>
                 <li>
                     <Link to="/contactUs">Contact Us</Link>
