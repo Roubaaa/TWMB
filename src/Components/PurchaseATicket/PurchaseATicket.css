@@ -104,3 +104,12 @@ color: #000000;
     visibility: hidden;
   }
   }
+
+  .btndetail{
+    border: 1px solid #2DD3E3;
+    color: #2DD3E3;
+    /* width:156px; */
+    height: 34px;
+    font-family: 'Poppins'; 
+    text-align: center;
+  }

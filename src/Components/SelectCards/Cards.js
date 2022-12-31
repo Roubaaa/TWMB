@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {AiOutlineRight, AiOutlineLeft} from "react-icons/ai";
 import { BsPlusLg } from "react-icons/bs";
 import Card1 from "./card1.png"
@@ -45,9 +46,11 @@ export default function PurchaseATicket() {
         </span>
     </button>
 </div>
+<Link to="/carddetails">
+
 <button type="button" className="btncard text-[12px] sm:text-xl text-black  py-2 px-4 rounded my-20">
    ADD NEW CARDS <BsPlusLg className="plus"/>
-</button>
+</button></Link>
 </div>
 
 
