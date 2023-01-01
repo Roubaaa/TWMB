@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-import "./Home.css";
-import PurchaseATicket from "../PurchaseATicket/PurchaseATicket"
-=======
 import React from 'react';
 import './Home.css';
 import Background from './homeimages/background.png';
@@ -17,20 +12,12 @@ import PurchaseATicket from "../PurchaseATicket/PurchaseATicket";
 
 
 
->>>>>>> Home
 
 // import { Link } from "react-router-dom";
 
 
 export default function Home() {
   return (
-<<<<<<< HEAD
-   <div>
-<p>Home </p>
-  <PurchaseATicket/>
-</div>
-       )}
-=======
 
 <div >
 
@@ -169,4 +156,3 @@ export default function Home() {
 
 
        )}
->>>>>>> Home

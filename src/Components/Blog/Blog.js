@@ -1,6 +1,6 @@
 import React from "react";
 import "./Blog.css";
-import { IoPaperPlane } from "../react-icons/io5";
+import { IoPaperPlane } from "react-icons/io5";
 import BlogItem from "./BlogItem";
 import blogSecond from "./secondPic.png";
 import blogThird from "./thirdPic.png";
