@@ -4,13 +4,15 @@ import "./App.css";
 import Home from "./Components/Home/Home";
 import About from "./Components/About/About";
 import Blog from "./Components/Blog/Blog";
-import SignIn from "./Components/LogIn/SignIn"
-import SignUp from "./Components/LogIn/SignUp"
-import ContactUs from "./Components/ContactUs/ContactUs"
-import CreateAnAccount from "./Components/CreateAnAccount/CreateAnAccount"
-import PurchaseATicket from "./Components/PurchaseATicket/PurchaseATicket"
-import Navbar from "./Components/Navbar/Navbar"
+import SignIn from "./Components/LogIn/SignIn";
+import SignUp from "./Components/LogIn/SignUp";
+import ContactUs from "./Components/ContactUs/ContactUs";
+import CreateAnAccount from "./Components/CreateAnAccount/CreateAnAccount";
+import PurchaseATicket from "./Components/PurchaseATicket/PurchaseATicket";
+import LearnMore from "./Components/Home/LearnMore";
+import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
+
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
         <Route path="/contactUs" element={<ContactUs />} />
         <Route path="/account" element={<CreateAnAccount />} />
         <Route path="/purchase" element={<PurchaseATicket />} /> 
+        <Route path="/learnMore" element={<LearnMore />} /> 
       </Routes>
   
   <Footer />

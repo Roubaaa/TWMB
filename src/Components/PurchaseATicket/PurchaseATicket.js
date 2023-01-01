@@ -1,6 +1,6 @@
 import React from "react";
 import "./PurchaseATicket.css";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 export default function PurchaseATicket() {
@@ -49,7 +49,7 @@ export default function PurchaseATicket() {
 <h2 className="sm:text-4xl">Are you a counselor?</h2>
     <p className="mb-3 font-normal text-[10px] sm:text-2xl">Interested in joining our mental health platform? You decide your schedule and how much you want to work, we’ll take care of the client referrals and billing details!</p>
     <button type="button" className="sm:text-2xl text-black  py-2 px-4 rounded hover:bg-cyan-600">
-    Learn More
+   <Link to="/learnMore"> Learn More </Link>
 </button>
 </div>
 

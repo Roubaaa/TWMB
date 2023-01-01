@@ -11,7 +11,7 @@ return(
 
     
         <div>
-  <button type="button" className="flex flex-row" onClick={()=> setIsOpen((prev) => !prev)}> <Link to="/about">About</Link>
+  <button type="button" className="flex flex-row" onClick={()=> setIsOpen((prev) => !prev)}> <Link className ="navList"to="/about">About</Link>
   { !isOpen ? (
 
 <AiOutlineCaretDown className="h-8"/>
@@ -23,10 +23,8 @@ return(
   </button>
     
     { isOpen && (
-        <ul className= "bg-white rounded-md shadow-xl absolute top-20 flex flex-col p-2 items-start w-auto "> 
-        <li className =""><Link to="/about">About</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/about">About</Link></li>
+        <ul className= "navList bg-white rounded-md shadow-xl absolute top-20 flex flex-col p-2 items-start w-auto "> 
+        <li className ="navList"><Link to="/about">About</Link></li>
         </ul>
     )}
     </div>

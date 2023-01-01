@@ -17,17 +17,17 @@ export default function Navbar() {
         <h1 className="title text-[20px] sm:text-[40px]">Healing</h1>
        </div>
             <ul className =" flex flex-row justify-center text-[15px]  items-center sm:gap-x-7 gap-x-4 sm:text-[20px] ">
-                 <li>
+                 <li className="navList">
                     <Link to ="/">Home</Link>
                 </li>
-                <li>
+                <li className="navList">
                     <Link to="/blogs">Blogs</Link>
                 </li>
-                <li>
+                <li >
                         <Dropdown/>
             
                 </li>
-                <li>
+                <li className="navList" >
                     <Link to="/contactUs">Contact Us</Link>
                 </li>
                 
