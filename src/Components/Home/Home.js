@@ -84,8 +84,66 @@ export default function Home() {
 
 
 
-<div className="slide-div w-full h-auto pl-40 ">
-<p className="font-style font-bold text-4xl mt-5 pt-20   uppercase">recent blogs</p>
+<div className="slide-div w-full h-auto ">
+<p className="font-style font-bold text-4xl mt-5 pt-20 pl-40  uppercase">recent blogs</p>
+<div className="slider ml-16">
+    <div className="slides">
+      <div id="slides__1" className="slide flex  ">
+
+       <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
+      v
+       </div>
+       <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
+      v
+       </div>
+       <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
+      v
+       </div>
+        <a className="slide__prev" href="#slides__4" title="Next">.</a>
+        <a className="slide__next" href="#slides__2" title="Next">.</a>
+      </div>
+      <div id="slides__2" className="slide">
+      <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
+     v
+      </div>
+      <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
+     v
+      </div>
+      <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
+     v
+      </div>
+        <a className="slide__prev" href="#slides__1" title="Prev">.</a>
+        <a className="slide__next" href="#slides__3" title="Next" >.</a>
+      </div>
+      <div id="slides__3" className="slide">
+      <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
+     v
+      </div>
+      <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
+     v
+      </div>
+      <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
+     v
+      </div>
+        <a className="slide__prev" href="#slides__2" title="Prev" >.</a>
+        <a className="slide__next" href="#slides__4" title="Next" >.</a>
+      </div>
+      <div id="slides__4" className="slide">
+      <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
+     v
+      </div>
+      <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
+     v
+      </div>
+      <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
+     v
+      </div>
+        <a className="slide__prev" href="#slides__3" title="Prev">.</a>
+        <a className="slide__next" href="#slides__1" title="Prev" >.</a>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 
