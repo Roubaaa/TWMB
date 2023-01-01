@@ -1,6 +1,6 @@
 import React from "react";
 import "./Blog.css";
-import { IoPaperPlane } from "react-icons/io5";
+import { IoPaperPlane } from "../react-icons/io5";
 import BlogItem from "./BlogItem";
 import blogSecond from "./secondPic.png";
 import blogThird from "./thirdPic.png";
@@ -12,7 +12,7 @@ export default function Blog(){
         <BlogItem />
 
 
-<div className="blogDiv flex flex-col my-16 mx-24"> 
+<div className="blogDiv flex flex-col my-16 mx-24">
 <p className="titleThree pt-10 sm:text-[32px] text-[15px]">Sign up for The Healing blog</p>
 <p className="sm:text-[20px] text-[10px] pb-4">A weekly, ad-free Blog that helps you stay in the know</p>
 
