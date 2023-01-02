@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap'); */
 
 
-.font-style{
+/* .font-style{
 font-family: 'Poppins', sans-serif;
-}
+} */
 .slide-div{
 background-color: #EAF8F9;
 }
@@ -53,10 +53,8 @@ background-color: #EAF8F9;
     scroll-snap-align: center;
 }
 
-.slide__text {
-    font-size: 40px;
-    font-weight: bold;
-    font-family: sans-serif;
+.book-btn{
+    font-family: 'Poppins' !important;
 }
 
 .slide a {
