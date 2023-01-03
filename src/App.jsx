@@ -12,7 +12,12 @@ import PurchaseATicket from "./Components/PurchaseATicket/PurchaseATicket";
 import LearnMore from "./Components/Home/LearnMore";
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
+
 import Meet from "./Components/Meet/About";
+
+
+import SelectCards from "./Components/SelectCards/Cards"
+import CardDetails from "./Components/CardDetails/Carddetails" 
 
 
 function App() {
@@ -29,8 +34,13 @@ function App() {
         <Route path="/contactUs" element={<ContactUs />} />
         <Route path="/account" element={<CreateAnAccount />} />
         <Route path="/purchase" element={<PurchaseATicket />} /> 
+
         <Route path="/learnMore" element={<LearnMore />} /> 
         <Route path="/meet" element={<Meet/>}/>
+
+        <Route path="/cards" element={<SelectCards/>} /> 
+        <Route path="/carddetails" element={<CardDetails/>} /> 
+
       </Routes>
   
   <Footer />
