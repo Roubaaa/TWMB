@@ -14,6 +14,7 @@ import Footer from "./Components/Footer/Footer";
 import SelectCards from "./Components/SelectCards/Cards"
 import CardDetails from "./Components/CardDetails/Carddetails" 
 import Meet from "./Components/About/Meet" 
+import LearnMore from "./Components/Home/LearnMore";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/cards" element={<SelectCards/>} /> 
         <Route path="/carddetails" element={<CardDetails/>} /> 
         <Route path="/meet" element={<Meet/>} /> 
+         <Route path="/learnMore" element={<LearnMore />} />
       </Routes>
   
   <Footer />

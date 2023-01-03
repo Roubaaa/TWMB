@@ -1,0 +1,52 @@
+.learnMoreTitle {
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 75px;
+    text-transform: uppercase;
+    color: #000000;
+    font-family: 'Poppins';
+    }
+    .learnMoreTitleSec {
+        text-transform: uppercase;
+        font-family: 'Poppins';
+        font-weight: 500;
+        line-height: 30px;
+    }
+    .para {
+        
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+    text-transform: capitalize;
+    color: rgba(0, 0, 0, 0.54);
+    }
+    
+    .learnMoreTitleThird {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        line-height: 52px;
+        text-transform: uppercase;
+        color: #000000;
+    
+    }
+    
+    .learnMoreList  { 
+    font-family: 'Poppins';
+    font-weight: 500;
+    line-height: 30px;
+    text-transform: capitalize;
+    color: rgba(0, 0, 0, 0.54);
+    list-style-type: disc;
+    }
+    
+    .learnMoreButton{
+        background: #2DD3E3;
+        text-transform: uppercase;
+        font-family: 'Poppins';
+        font-family: 'Poppins';
+        font-weight: 400;
+        line-height: 36px;
+    
+    }
