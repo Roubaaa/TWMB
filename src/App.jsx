@@ -12,6 +12,7 @@ import PurchaseATicket from "./Components/PurchaseATicket/PurchaseATicket";
 import LearnMore from "./Components/Home/LearnMore";
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
+import Meet from "./Components/Meet/About";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/account" element={<CreateAnAccount />} />
         <Route path="/purchase" element={<PurchaseATicket />} /> 
         <Route path="/learnMore" element={<LearnMore />} /> 
+        <Route path="/meet" element={<Meet/>}/>
       </Routes>
   
   <Footer />
