@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import signupImage from "./SignupImage.png";
+
 
 function SignUp() {
   return (
@@ -56,7 +58,7 @@ function SignUp() {
             </div>
             <div className='flex flex-row w-full justify-center items-center gap-6 m-5'>
                 <h1 className='text-gray-700'>
-                    Brith Date
+                    Birth Date
                 </h1>
                 <input type="text" placeholder='DD' className='w-14 form-control block px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-cyan-400 focus:outline-none placeholder:text-sm'/>
                 <input type="text" placeholder='MM' className='w-16 form-control block px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-cyan-400 focus:outline-none placeholder:text-sm'/>
@@ -68,7 +70,7 @@ function SignUp() {
               type="button"
               className="inline-block px-7 py-2 w-44 h-14 bg-cyan-400 text-black font-sans font-semibold text-lg leading-9 rounded shadow-md hover:bg-cyan-100 hover:text-cyan-700 hover:shadow-lg focus:bg-white focus:shadow-lg focus:outline-none focus:ring-0 active:bg-cyan-600 active:shadow-lg transition duration-150 ease-in-out"
             >
-              Login
+             <Link to="/signIn"> LogIn</Link>
             </button>
 
 
