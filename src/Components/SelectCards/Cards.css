@@ -1,12 +1,11 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap'); */
 
 
-
-
-.slide1-div{
-
-
-
-background-color: #EAF8F9;
+/* .font-style{
+font-family: 'Poppins', sans-serif;
+} */
+.slide-div{
+background-color: white;
 }
 
 .slider-container {
@@ -35,11 +34,11 @@ background-color: #EAF8F9;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
 }
-.slide1:nth-of-type(even) {
-    background-color: #EAF8F9;
+.slide:nth-of-type(even) {
+    background-color: white;
 }
 
-.slide1 {
+.slide {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,17 +47,19 @@ background-color: #EAF8F9;
     height: 400px;
     margin-right: 0px;
     box-sizing: border-box;
-    background: #EAF8F9;
+    background: white;
     transform-origin: center center;
     transform: scale(1);
     scroll-snap-align: center;
 }
 
-.book-btn{
-    font-family: 'Poppins' !important;
-}
+/* .slide__text {
+    font-size: 40px;
+    font-weight: bold;
+    font-family: sans-serif;
+} */
 
-.slide1 a {
+.slide a {
     background: none;
     border: none;
 }
