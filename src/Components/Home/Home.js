@@ -32,7 +32,7 @@ export default function Home() {
 </div>
 <div className="w-3/4 -mt-32 mr-20"><img src={Pic1} alt="background" className=""/></div>
 </div>
-</div>
+</div>  
 
 
 <div className="bg-yellow-200 w-full pl-40 h-auto">
