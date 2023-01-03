@@ -49,15 +49,18 @@ export default function Home() {
 </div>
 
 
+
+
 <div className="w-full h-auto pl-40">
 <p className="font-style  text-4xl mt-5 pt-20   uppercase">we can communicate through</p>
 <div className="flex   mt-16 mb-10">
+
 <div className=" w-80 h-80 bg-white shadow-2xl shadow-gray-500 mr-5 rounded-3xl ">
 <div className="flex justify-center mt-10"><i className="fa-solid fa-phone text-7xl "/></div>
 <div className="flex justify-center mt-5">
 <p className=" font-style  text-4xl  ">Voice Call</p>
 </div>
-<div className="flex justify-center mt-5">
+<div className="flex justify-center mt-3">
 <p className="  font-style  font-semibold text-md text-center 	ml-8 mr-8 ">Feeling ready to start a conversation? Give your therapist a voice call and talk your heart out!</p>
 </div>
 </div>
@@ -66,7 +69,7 @@ export default function Home() {
 <div className="flex justify-center mt-5">
 <p className="font-style  text-4xl  ">Chat</p>
 </div>
-<div className="flex justify-center mt-5">
+<div className="flex justify-center mt-3">
 <p className="  font-style  font-semibold text-md text-center 	ml-8 mr-8 ">Need to talk to someone?<br/>Come have a chat with your<br/> therapist!</p>
 </div>
 </div>
@@ -75,7 +78,7 @@ export default function Home() {
 <div className="flex justify-center mt-5">
 <p className=" font-style text-4xl  ">Video Call</p>
 </div>
-<div className="flex justify-center mt-5">
+<div className="flex justify-center mt-3">
 <p className="  font-style  font-semibold text-md text-center 	ml-8 mr-8 ">For better experience therapists recommend video calls, but always remember that its a choice!</p>
 </div>
 </div>
@@ -84,11 +87,13 @@ export default function Home() {
 
 
 
-<div className="slide-div w-full h-auto ">
-<p className="font-style text-4xl mt-5 pt-20 pl-40  uppercase">recent blogs</p>
+
+<div className="slide1-div w-full h-auto ">
+<p className="font-style font-bold text-4xl mt-5 pt-20 pl-40  uppercase">recent blogs</p>
+
 <div className="slider ml-16">
     <div className="slides">
-      <div id="slides__1" className="slide flex  ">
+      <div id="slides__1" className="slide1 flex  ">
 
        <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
       v
@@ -102,7 +107,7 @@ export default function Home() {
         <a className="slide__prev" href="#slides__4" title="Next">.</a>
         <a className="slide__next" href="#slides__2" title="Next">.</a>
       </div>
-      <div id="slides__2" className="slide">
+      <div id="slides__2" className="slide1 ">
       <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
      v
       </div>
@@ -115,7 +120,7 @@ export default function Home() {
         <a className="slide__prev" href="#slides__1" title="Prev">.</a>
         <a className="slide__next" href="#slides__3" title="Next" >.</a>
       </div>
-      <div id="slides__3" className="slide">
+      <div id="slides__3" className="slide1">
       <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
      v
       </div>
@@ -128,7 +133,7 @@ export default function Home() {
         <a className="slide__prev" href="#slides__2" title="Prev" >.</a>
         <a className="slide__next" href="#slides__4" title="Next" >.</a>
       </div>
-      <div id="slides__4" className="slide">
+      <div id="slides__4" className="slide1">
       <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
      v
       </div>

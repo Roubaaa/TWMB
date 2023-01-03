@@ -1,10 +1,11 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap'); */
 
 
-/* .font-style{
-font-family: 'Poppins', sans-serif;
-} */
-.slide-div{
+
+
+.slide1-div{
+
+
+
 background-color: #EAF8F9;
 }
 
@@ -34,11 +35,11 @@ background-color: #EAF8F9;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
 }
-.slide:nth-of-type(even) {
+.slide1:nth-of-type(even) {
     background-color: #EAF8F9;
 }
 
-.slide {
+.slide1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,7 +58,7 @@ background-color: #EAF8F9;
     font-family: 'Poppins' !important;
 }
 
-.slide a {
+.slide1 a {
     background: none;
     border: none;
 }
