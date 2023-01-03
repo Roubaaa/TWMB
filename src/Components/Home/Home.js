@@ -51,9 +51,9 @@ export default function Home() {
 
 
 
-<div className="w-full h-auto pl-40">
-<p className="font-style  font-bold text-4xl mt-5 pt-20   uppercase">we can communicate through</p>
-<div className="flex   mt-16 mb-10">
+<div className="w-full h-auto ">
+<p className="font-style  font-bold text-4xl mt-5 pl-40 pt-20   uppercase">we can communicate through</p>
+<div className="flex justify-between  m-20">
 
 <div className=" w-80 h-80 bg-white shadow-2xl shadow-gray-500 mr-5 rounded-3xl ">
 <div className="flex justify-center mt-10"><i className="fa-solid fa-phone text-7xl "/></div>
