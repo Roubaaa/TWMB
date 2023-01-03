@@ -11,14 +11,14 @@
 }
 
 
-ul {
+.ListNavbar {
 font-family: 'Poppins';
 font-style: normal;
 font-weight: 400;
 line-height: 30px;
 }
 
-li:hover {
+.navList:hover {
     color:#FEE89E;
     text-decoration-line: underline;
     font-weight: 700;
