@@ -17,6 +17,7 @@ import PurchaseATicket from "../PurchaseATicket/PurchaseATicket";
 
 
 export default function Home() {
+  
   return (
 
 <div >
