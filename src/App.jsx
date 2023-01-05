@@ -15,7 +15,7 @@ import SelectCards from "./Components/SelectCards/Cards"
 import CardDetails from "./Components/CardDetails/Carddetails" 
 import Meet from "./Components/About/Meet" 
 import LearnMore from "./Components/Home/LearnMore";
-import SignInFB from "./Components/LogIn/SignIn-Fb";
+
 
 function App() {
   return (
@@ -35,7 +35,7 @@ function App() {
         <Route path="/carddetails" element={<CardDetails/>} /> 
         <Route path="/meet" element={<Meet/>} /> 
          <Route path="/learnMore" element={<LearnMore />} />
-         <Route path="/signInFb" element={<SignInFB/>}/>
+       
       </Routes>
   
   <Footer />

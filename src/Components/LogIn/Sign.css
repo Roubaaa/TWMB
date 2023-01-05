@@ -1,0 +1,23 @@
+.btnFacebook { 
+    width: 40px;
+    height:40px;  
+    border-radius: 100%;
+    background-color: rgb(34 211 238) !important;
+    color:rgb(255, 255, 255);
+    border:0px transparent;  
+    padding-left: 6px;
+    margin-bottom:55px;
+    display: inline-block;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    
+  }
+  .btnFacebook:hover{
+    background-color: rgb(29 78 216) !important;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)
+  }
+
+  @media only screen and (max-width : 399px) {
+    .btnFacebook {
+      width: 100%
+    }
+  }

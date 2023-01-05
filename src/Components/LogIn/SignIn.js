@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import FacebookLogin from 'react-facebook-login';
 import MyImage from "./image.png";
+import "./Sign.css"
 
 
 export default function SignIn() {
-  const [login,setLogin] = useState(false);
-  const [setData] = useState({});
-  const [ setPicture] = useState('');
+  const [login, setLogin] = useState(false);
+  const [data, setData] = useState({});
+  const [picture, setPicture] = useState('');
   const responseFacebook = (response) => {
     console.log(response);
     setData(response);
@@ -66,26 +67,35 @@ export default function SignIn() {
             <p className="text-center text-cyan-400 font-semibold mx-4 mb-0">Or</p>
           </div>
           <div className="flex gap-10 justify-center items-center">
+          
          { !login && 
               <FacebookLogin 
-                type="button"
-                data-mdb-ripple="true"
-                data-mdb-ripple-color="light"
-                className="inline-block p-3 bg-cyan-400 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
+    
                 appId="1399463824159184"
-                autoLoad
+                autoLoad="true"
                 fields="name,email,picture"
                 scope="public_profile,user_friends"
                 callback={responseFacebook}
+                icon="fa-facebook"
+                cssClass="btnFacebook"
+                textButton = "&nbsp;&nbsp;"                                                                
+              
                  />
             }
               
-              <Link to="/signInFb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" className="w-4 h-4">
-                <path
-                  fill="currentColor"
-                  d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
-                />
-              </svg></Link>
+              { login &&
+          
+          <img className="sm:w-28 w-28 rounded-t-3xl border-b-green-500 border-solid  border-b-2" src={picture} alt="finder" />
+        }
+         { login &&
+          <div>
+            <div>{data.name}</div>
+            <div>
+              {data.email}
+            </div>
+          </div>
+        }
+   
            <button
               type="button"
               data-mdb-ripple="true"
