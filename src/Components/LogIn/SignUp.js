@@ -1,9 +1,51 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import { Link } from "react-router-dom";
+import {createUserWithEmailAndPassword} from 'firebase/auth';
+import {auth} from "../../Firebase/Firebase";
 import signupImage from "./SignupImage.png";
 
 
+
+
+
+
 function SignUp() {
+
+const [email, setEmail] = useState('')
+const [password, setPassword] = useState('')
+const [confirmPassword, setConfirmPassword] = useState('')
+const [error, setError] = useState('')
+
+
+  const validatePassword = () => {
+  let isValid = true
+  if (password !== '' && confirmPassword !== ''){
+    if (password !== confirmPassword) {
+      isValid = false
+      setError('Passwords does not match')
+    }
+  }
+  return isValid
+}
+
+
+const register = e => {
+  e.preventDefault()
+  setError('')
+  if(validatePassword()) {
+    // Create a new user with email and password using firebase
+      createUserWithEmailAndPassword(auth, email, password)
+      .then((res) => {
+          console.log(res.user)
+        })
+      .catch(err => setError(err.message))
+  }
+  setEmail('')
+  setPassword('')
+  setConfirmPassword('')
+}
+
+
   return (
 <div className='my-20'>
     <div className='flex flex-wrap justify-center items-center'>
@@ -13,16 +55,20 @@ function SignUp() {
 
         {/* Input Part */}
         <div className='w-2/4 '>
-        <div>
+        <div className='auth'>
+
         <h1 className='text-5xl mb-10'>SIGNUP NOW</h1>
+        {error && <div className='auth__error'>{error}</div>}
         </div>
         <div className='w-8/12 shadow-lg rounded-lg py-7'>
+           <form onSubmit={register} name='registration_form'>
             <div className='flex flex-row gap-3 p-2 justify-center items-center'>
+
             <input
               type="text"
               className="form-control block w-56 px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-cyan-400 focus:outline-none placeholder:text-sm"
               placeholder="First Name"
-            /> 
+            />
              <input
               type="text"
               className="form-control block w-56 px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-cyan-400 focus:outline-none placeholder:text-sm"
@@ -32,28 +78,34 @@ function SignUp() {
 
             <div className='flex my-2 w-full px-2 items-center justify-center'>
             <input
-              type="text"
+            type='email'
+            value={email}
+            placeholder="Enter your email"
+            required
+            onChange={e => setEmail(e.target.value)}
               className="form-control block w-11/12 px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-cyan-400 focus:outline-none placeholder:text-sm"
-              placeholder="Your Email"
-            />  
+
+            />
             </div>
-            <div className='flex my-2 w-full px-2 items-center justify-center'>
+
+          <div className='flex flex-row gap-3 p-2 justify-center items-center'>
             <input
-              type="text"
-              className="form-control block w-11/12 px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-cyan-400 focus:outline-none placeholder:text-sm"
-              placeholder="Confirm Email"
-            />  
-            </div>
-            <div className='flex flex-row gap-3 p-2 justify-center items-center'>
-            <input
-              type="text"
+            type='password'
+          value={password}
+          required
+          placeholder='Enter your password'
+          onChange={e => setPassword(e.target.value)}
               className="form-control block w-56 px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-cyan-400 focus:outline-none placeholder:text-sm"
-              placeholder="Password"
-            /> 
+
+            />
              <input
-              type="text"
+             type='password'
+             value={confirmPassword}
+             required
+             placeholder='Confirm password'
+             onChange={e => setConfirmPassword(e.target.value)}
               className="form-control block w-56 px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-cyan-400 focus:outline-none placeholder:text-sm"
-              placeholder="Confirm Password"
+
             />
             </div>
             <div className='flex flex-row w-full justify-center items-center gap-6 m-5'>
@@ -67,20 +119,22 @@ function SignUp() {
             </div>
             <div className='flex flex-row justify-center gap-10'>
             <button
-              type="button"
-              className="inline-block px-7 py-2 w-44 h-14 bg-cyan-400 text-black font-sans font-semibold text-lg leading-9 rounded shadow-md hover:bg-cyan-100 hover:text-cyan-700 hover:shadow-lg focus:bg-white focus:shadow-lg focus:outline-none focus:ring-0 active:bg-cyan-600 active:shadow-lg transition duration-150 ease-in-out"
-            >
-             <Link to="/signIn"> LogIn</Link>
-            </button>
-
-
-            <button
-              type="button"
+              type='submit'
               className="inline-block px-7 py-2 w-44 h-14 bg-white text-cyan-400 font-sans font-semibold text-lg border border-cyan-400 leading-9 rounded shadow-md hover:text-white hover:bg-cyan-400 hover:shadow-lg focus:bg-cyan-40 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
             >
               Signup
             </button>
+
+
+             <button
+               type="button"
+               className="inline-block px-7 py-2 w-44 h-14 bg-cyan-400 text-black font-sans font-semibold text-lg leading-9 rounded shadow-md hover:bg-cyan-100 hover:text-cyan-700 hover:shadow-lg focus:bg-white focus:shadow-lg focus:outline-none focus:ring-0 active:bg-cyan-600 active:shadow-lg transition duration-150 ease-in-out"
+             >
+              <Link to="/signIn"> LogIn</Link>
+             </button>
+
             </div>
+            </form>
         </div>
         <div className='w-2/4 ml-16'>
         <div
@@ -118,7 +172,7 @@ function SignUp() {
           </div>
 
         </div>
-        
+
         </div>
     </div>
 </div>

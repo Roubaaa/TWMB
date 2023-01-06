@@ -22,4 +22,4 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 // in order to use this auth instance elsewhere
-export default auth;
+export {auth};

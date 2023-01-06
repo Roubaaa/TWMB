@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import MyImage from "./image.png";
 
 export default function SignIn() {
+
   return (
 <div className="flex flex-col justify-center items-center mt-12  ">
 
@@ -13,10 +14,11 @@ export default function SignIn() {
   <div className="flex flex-row mt-24">
       <div className="flex flex-col justify-center items-center">
         <div className="shadow-lg px-10 py-10 ml-44">
+
         <input
               type="text"
               className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-cyan-400 focus:outline-none placeholder:text-sm"
-              id="exampleFormControlInput2"
+              id="exampleFormControlInput1"
               placeholder="Your Email"
             />
 
@@ -26,6 +28,7 @@ export default function SignIn() {
               id="exampleFormControlInput2"
               placeholder="Your Password"
             />
+
 
         <div className="flex gap-8">
             <button
@@ -78,15 +81,15 @@ export default function SignIn() {
             </button>
           </div>
     </div>
-   
+
     </div>
 
-    
+
             <div className="w-full ml-44">
               <img src={MyImage} alt="login" className="w-3/4"/>
             </div>
           </div>
 
 
-</div>  
+</div>
 )}
