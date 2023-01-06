@@ -3,8 +3,20 @@ import "./Navbar.css";
 import { Link } from "react-router-dom";
 import logo from "./logo.png"
 import Dropdown from "./Dropdown"
+import { UserAuth } from "../../context/AuthContext";
 
 export default function Navbar() {
+
+    const [user, logOut] = UserAuth();
+    
+    const handleSignOut = async () => {
+        try {
+            await logOut()
+
+        } catch (error) {
+            console.log(error)
+        }
+}
   return (
 
        <nav className="navBarContainer flex flex-row justify-evenly" >
@@ -26,8 +38,9 @@ export default function Navbar() {
                 <li className ="navList">
                     <Link to="/contactUs">Contact Us</Link>
                 </li>
-                
-                   <button type="button" className=" press bg-cyan-400 rounded-md shadow-md px-5 py-1 hover:bg-cyan-600 " > <Link to="/signIn">Log In </Link> </button>
+                { user?.displayName ? ( <button type="button" className=" press bg-cyan-400 rounded-md shadow-md px-5 py-1 hover:bg-cyan-600 " onClick={handleSignOut} > <Link to="/signOut">Log Out </Link> </button>) :
+                 (  <button type="button" className=" press bg-cyan-400 rounded-md shadow-md px-5 py-1 hover:bg-cyan-600 " > <Link to="/signIn">Log In </Link> </button>) }
+                 
                 
               
             </ul>

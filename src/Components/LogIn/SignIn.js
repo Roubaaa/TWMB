@@ -1,8 +1,31 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { React, useEffect } from "react";
+import { Link, useNavigate} from "react-router-dom";
 import MyImage from "./image.png";
+import { UserAuth } from "../../context/AuthContext";
+
 
 export default function SignIn() {
+  const { googleSignIn, user } = UserAuth();
+  const navigate =useNavigate();
+
+ const handleGoogleSignIn = async () => {
+
+
+      try  {
+        await googleSignIn()
+      } catch (error){
+      console.log(error)
+      }
+      };
+
+    useEffect(()=>{
+
+      if (user != null) {
+        navigate ('/account');
+      }
+
+    }, [user]);
+
   return (
 <div className="flex flex-col justify-center items-center mt-12  ">
 
@@ -53,6 +76,7 @@ export default function SignIn() {
           <div className="flex gap-10 justify-center items-center">
           <button
               type="button"
+              onClick={handleGoogleSignIn}
               data-mdb-ripple="true"
               data-mdb-ripple-color="light"
               className="inline-block p-3 bg-cyan-400 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
