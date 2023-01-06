@@ -85,7 +85,7 @@ export default function SignIn() {
               
               { login &&
           
-          <img className="sm:w-28 w-28 rounded-t-3xl border-b-green-500 border-solid  border-b-2" src={picture} alt="finder" />
+          <img className="sm:w-28 w-28 rounded-full shadow-md  hover:shadow-lg " src={picture} alt="finder" />
         }
          { login &&
           <div>
