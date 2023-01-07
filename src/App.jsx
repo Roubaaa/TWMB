@@ -15,12 +15,13 @@ import SelectCards from "./Components/SelectCards/Cards"
 import CardDetails from "./Components/CardDetails/Carddetails" 
 import Meet from "./Components/About/Meet" 
 import LearnMore from "./Components/Home/LearnMore";
-import { AuthContextProvider } from "./Components/context/AuthContext"
+import { AuthContextProvider } from "./contexts/AuthContext"
 
 function App() {
   return (
   <div>
-    <AuthContextProvider>
+<AuthContextProvider>
+  
       <Navbar />
 
       <Routes>

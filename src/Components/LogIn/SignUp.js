@@ -1,9 +1,24 @@
-import React from 'react';
-import { Link } from "react-router-dom";
+
+import { React, useEffect} from "react";
+import { Link, useNavigate } from "react-router-dom";
+import  {  UserAuth } from "../../contexts/AuthContext";
+import Google from "./Google.png";
 import signupImage from "./SignupImage.png";
 
 
 function SignUp() {
+
+  const { googleSignIn, user } = UserAuth();
+  const navigate = useNavigate();
+
+  const handleGoogleSignIn = async () => {
+      await googleSignIn();
+  useEffect(() => {
+    if (user != null) {
+      navigate('/');
+    }
+  }, [user]);}
+
   return (
 <div className='my-20'>
     <div className='flex flex-wrap justify-center items-center'>
@@ -12,6 +27,7 @@ function SignUp() {
         </div>
 
         {/* Input Part */}
+
         <div className='w-2/4 '>
         <div>
         <h1 className='text-5xl mb-10'>SIGNUP NOW</h1>
@@ -102,19 +118,16 @@ function SignUp() {
                   d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
                 />
               </svg>
-            </button> <button
-              type="button"
-              data-mdb-ripple="true"
-              data-mdb-ripple-color="light"
-              className="inline-block p-3 bg-cyan-400 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" className="w-4 h-4">
-                <path
-                  fill="currentColor"
-                  d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
-                />
-              </svg>
-            </button>
+            </button> 
+          
+           <button
+           type="button"
+           onClick={handleGoogleSignIn}
+           className="inline-block p-1 white-400 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md  hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out"
+         > <img src={Google} alt="Google Icon" />
+         </button>
+           
+          
           </div>
 
         </div>

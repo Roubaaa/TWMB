@@ -2,21 +2,23 @@ import React from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import logo from "./logo.png"
-import Dropdown from "./Dropdown"
-import { UserAuth } from "../../context/AuthContext";
+import Dropdown from "./Dropdown";
+import  {  UserAuth } from "../../contexts/AuthContext";
+
 
 export default function Navbar() {
 
-    const [user, logOut] = UserAuth();
-    
-    const handleSignOut = async () => {
-        try {
-            await logOut()
+    const { logOut } = UserAuth();
 
-        } catch (error) {
-            console.log(error)
-        }
-}
+    const handleSignOut = async () => {
+      
+           await logOut();}
+      
+    
+            
+        
+    
+        
   return (
 
        <nav className="navBarContainer flex flex-row justify-evenly" >
@@ -38,10 +40,10 @@ export default function Navbar() {
                 <li className ="navList">
                     <Link to="/contactUs">Contact Us</Link>
                 </li>
-                { user?.displayName ? ( <button type="button" className=" press bg-cyan-400 rounded-md shadow-md px-5 py-1 hover:bg-cyan-600 " onClick={handleSignOut} > <Link to="/signOut">Log Out </Link> </button>) :
-                 (  <button type="button" className=" press bg-cyan-400 rounded-md shadow-md px-5 py-1 hover:bg-cyan-600 " > <Link to="/signIn">Log In </Link> </button>) }
                  
-                
-              
+                <button type="button" className=" press bg-cyan-400 rounded-md shadow-md px-5 py-1 hover:bg-cyan-600 " > <Link to="/signIn">Log In </Link> </button>
+        
+                <button type="button" className=" press bg-cyan-400 rounded-md shadow-md px-5 py-1 hover:bg-cyan-600 " onClick={handleSignOut} > Log Out  </button>
+
             </ul>
        </nav> )}
