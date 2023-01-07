@@ -1,6 +1,6 @@
 import React,{ useState } from 'react';
-import { Link } from "react-router-dom";
-import {createUserWithEmailAndPassword} from 'firebase/auth';
+import {useNavigate, Link} from 'react-router-dom';
+import {createUserWithEmailAndPassword,sendEmailVerification} from 'firebase/auth';
 import {auth} from "../../Firebase/Firebase";
 import signupImage from "./SignupImage.png";
 
@@ -15,6 +15,7 @@ const [email, setEmail] = useState('')
 const [password, setPassword] = useState('')
 const [confirmPassword, setConfirmPassword] = useState('')
 const [error, setError] = useState('')
+const navigate = useNavigate()
 
 
   const validatePassword = () => {
@@ -30,21 +31,23 @@ const [error, setError] = useState('')
 
 
 const register = e => {
-  e.preventDefault()
-  setError('')
-  if(validatePassword()) {
-    // Create a new user with email and password using firebase
-      createUserWithEmailAndPassword(auth, email, password)
-      .then((res) => {
-          console.log(res.user)
-        })
-      .catch(err => setError(err.message))
-  }
-  setEmail('')
-  setPassword('')
-  setConfirmPassword('')
-}
-
+   e.preventDefault()
+   setError('')
+   if(validatePassword()) {
+     // Create a new user with email and password using firebase
+       createUserWithEmailAndPassword(auth, email, password)
+       .then(() => {
+         sendEmailVerification(auth.currentUser)
+         .then(() => {
+            navigate('/verify-email')
+         }).catch((err) => alert(err.message))
+       })
+       .catch(err => setError(err.message))
+   }
+   setEmail('')
+   setPassword('')
+   setConfirmPassword('')
+ }
 
   return (
 <div className='my-20'>
