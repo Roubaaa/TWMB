@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import FacebookLogin from 'react-facebook-login';
+// import firebase from "firebase"
+// import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import MyImage from "./image.png";
 import "./Sign.css"
 
@@ -73,7 +75,7 @@ export default function SignIn() {
               <FacebookLogin 
     
                 appId="1399463824159184"
-                autoLoad="true"
+                autoLoad="false"
                 fields="name,email,picture"
                 scope="public_profile,user_friends"
                 callback={responseFacebook}
@@ -96,6 +98,7 @@ export default function SignIn() {
             </div>
           </div>
         }
+        {/* <button type="button" onClick={()=>firebase.auth.signOut()}>Sign out</button> */}
    
            <button
               type="button"
