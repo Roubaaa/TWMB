@@ -1,10 +1,27 @@
 import React from "react";
 import "./ContactUs.css";
+import {db} from ".../Firebase"
+import { useState } from "react";
+import { addDoc,collection } from "firebase/firestore";
 // import { Link } from "react-router-dom";
 import image from "./Group.png";
 import image1 from "./Ellipse1.png";
 
-export default function ContactUs() {
+const  ContactUs = ()=> {
+  const [name ,setName] = useState();
+  const [email ,setEmail] = useState();
+  const [details ,setDetails] = useState();
+  const userCollectionRef = collection(db , "contactdata")
+
+  const handleSubmit =()=>{
+    addDoc(userCollectionRef,{
+      name:name,
+      email:email,
+      details:details
+
+    })
+
+  }
   return (
 
     <div>
@@ -40,12 +57,28 @@ export default function ContactUs() {
       <div className="w-10/12">
        <div className="flex flex-col w-2/4 justify-center  items-start space-y-5 px-32 ">
         <h1 className="font-normal text-xl" >Full Name:</h1>
-        <input type="text" className="rounded-lg shadow-md placeholder:text-lg placeholder:px-5 border	" style={{width:"604px",height:"68px"}} placeholder="Enter your full name here..."/>
+        <input type="text" className="rounded-lg shadow-md placeholder:text-lg placeholder:px-5 border	" style={{width:"604px",height:"68px"}} placeholder="Enter your full name here..."
+        
+        onChange={(event)=>{
+          setName(event.target.value);
+        }}
+        
+        />
         <h1 className="font-normal text-xl">Email:</h1>
-        <input type="text"  className="rounded-lg shadow-md placeholder:text-lg placeholder:px-5 border" style={{width:"604px",height:"68px"}} placeholder="Enter your email address here..."/>
+        <input type="text"  className="rounded-lg shadow-md placeholder:text-lg placeholder:px-5 border" style={{width:"604px",height:"68px"}} placeholder="Enter your email address here..."
+        
+        onChange={(event)=>{
+          setEmail(event.target.value);
+        }}
+        />
         <h1 className="font-normal text-xl">Details:</h1>
-        <input type="text"   className="rounded-lg shadow-md placeholder:text-lg placeholder:px-5 border" style={{width:"604px",height:"180px"}} placeholder="Enter your details here..."/>
-        <button type="button" className='w-56	 h-16 rounded-md font-normal text-2xl mt-20' style={{background: '#2DD3E3'}}>SUBMIT</button>
+        <input type="text"   className="rounded-lg shadow-md placeholder:text-lg placeholder:px-5 border" style={{width:"604px",height:"180px"}} placeholder="Enter your details here..."
+         
+         onChange={(event)=>{
+          setDetails(event.target.value);
+        }}
+        />
+        <button onClick={handleSubmit}  type="button" className='w-56	 h-16 rounded-md font-normal text-2xl mt-20' style={{background: '#2DD3E3'}}>SUBMIT</button>
         </div> 
       </div>
       <div className="flex w-10/12 justify-center items-center" style={{height:'581.71px'}}>
@@ -64,3 +97,4 @@ export default function ContactUs() {
 
 
 )}
+export default ContactUs
