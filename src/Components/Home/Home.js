@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Home.css';
 import Background from './homeimages/background.png';
 import Pic1 from './homeimages/main-image.png';
@@ -29,7 +30,8 @@ export default function Home() {
 <div className="w-2/4 ml-48 -mt-20 center">
 <p className="font-style font-bold text-3xl">WE ARE HERE TO</p>
 <p className="font-style font-bold text-8xl">HELP</p>
-<Button1  p="BOOK AN APPOINTMENT"/>
+<Link to="/booking">
+<Button1  p="BOOK AN APPOINTMENT"/></Link>
 </div>
 <div className="w-3/4 -mt-32 mr-20"><img src={Pic1} alt="background" className=""/></div>
 </div>
