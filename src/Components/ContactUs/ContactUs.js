@@ -1,27 +1,45 @@
-import React from "react";
+import {React ,useState} from "react";
 import "./ContactUs.css";
-import {db} from ".../Firebase"
-import { useState } from "react";
 import { addDoc,collection } from "firebase/firestore";
+import {db} from "../../Firebase"
 // import { Link } from "react-router-dom";
 import image from "./Group.png";
 import image1 from "./Ellipse1.png";
 
 const  ContactUs = ()=> {
-  const [name ,setName] = useState();
-  const [email ,setEmail] = useState();
-  const [details ,setDetails] = useState();
-  const userCollectionRef = collection(db , "contactdata")
+  const [userCollectionRef ,setuserCollectionRef] = useState();
+  
+  const handleOnChange = (event) => {
+    const {keyName} = event.target;
+    const {value} = event.target;
+    setuserCollectionRef((prev) => {
+      // Copy the previous object (state) and only change the keyName that I want
+      // prev is aka newMovieInput
+      return { ...prev, [keyName]: value };
+    });
+  };
 
-  const handleSubmit =()=>{
-    addDoc(userCollectionRef,{
-      name:name,
-      email:email,
-      details:details
 
-    })
 
-  }
+
+
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    // instead of saving new items to our state
+    // we will create a post request to add items to our database
+    await addDoc(collection(db, "contactdata"), {
+      ...userCollectionRef,
+    });
+    // Clear the form
+    setuserCollectionRef({
+      name: "",
+     email: "",
+      details: "",
+ 
+    });
+  };
+ 
   return (
 
     <div>
@@ -58,25 +76,26 @@ const  ContactUs = ()=> {
        <div className="flex flex-col w-2/4 justify-center  items-start space-y-5 px-32 ">
         <h1 className="font-normal text-xl" >Full Name:</h1>
         <input type="text" className="rounded-lg shadow-md placeholder:text-lg placeholder:px-5 border	" style={{width:"604px",height:"68px"}} placeholder="Enter your full name here..."
-        
-        onChange={(event)=>{
-          setName(event.target.value);
-        }}
+         value={userCollectionRef.name}
+        onChange={handleOnChange}
+
+      
         
         />
         <h1 className="font-normal text-xl">Email:</h1>
         <input type="text"  className="rounded-lg shadow-md placeholder:text-lg placeholder:px-5 border" style={{width:"604px",height:"68px"}} placeholder="Enter your email address here..."
         
-        onChange={(event)=>{
-          setEmail(event.target.value);
-        }}
+    
+          value={userCollectionRef.email}
+          onChange={handleOnChange}
+        
         />
         <h1 className="font-normal text-xl">Details:</h1>
         <input type="text"   className="rounded-lg shadow-md placeholder:text-lg placeholder:px-5 border" style={{width:"604px",height:"180px"}} placeholder="Enter your details here..."
          
-         onChange={(event)=>{
-          setDetails(event.target.value);
-        }}
+         value={userCollectionRef.details}
+         onChange={handleOnChange}
+       
         />
         <button onClick={handleSubmit}  type="button" className='w-56	 h-16 rounded-md font-normal text-2xl mt-20' style={{background: '#2DD3E3'}}>SUBMIT</button>
         </div> 
