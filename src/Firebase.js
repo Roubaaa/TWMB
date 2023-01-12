@@ -21,6 +21,7 @@ const app = initializeApp(firebaseConfig);
 
 // gives us an auth instance
 export const auth = getAuth(app);
-export const db = getFirestore(app)
+export const db = getFirestore(app);
+
 // in order to use this auth instance elsewhere
-export default auth;
+export default app;
