@@ -14,6 +14,7 @@ export default function Footer() {
 
    const [input, setInput] =useState(""); 
   const inputHandler = (e) => {
+    e.preventDefault();
     setInput(e.target.value)
   }; 
 
@@ -21,13 +22,11 @@ export default function Footer() {
 
   const submitHandler = async (event) => {
     event.preventDefault();
-    await addDoc(collection(db, "emails"), {
-      email: input,
+    await addDoc(collection(db, "Newsletter"), {
+      email: input
     });
-    setInput({
-      email:  "",
-      
-    });
+
+    setInput("")
   };
   
   return (
