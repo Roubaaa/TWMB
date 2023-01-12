@@ -8,80 +8,52 @@ import image1 from "./Ellipse1.png";
 
 const  ContactUs = ()=> {
     
-  // const[name , setName] = useState("");
+  const[name , setName] = useState("");
   const[email , setEmail] = useState({});
-  // const[details , setDetails] = useState("");
+  const[details , setDetails] = useState("");
 
     // __________this handling  email,name,details input___________________
   const handleOnChange = (event) => {
     const {
       target: { name: keyName, value },
     } = event;
-    // console.log('handleOnChange:', keyName);
+  // console.log('handleOnChange:', keyName);
+   
+    setDetails((prev) => {
+      return { ...prev, [keyName]: value };
+    });
     setEmail((prev) => {
       return { ...prev, [keyName]: value };
     });
+    setName((prev) => {
+      return { ...prev, [keyName]: value };
+    });
   };
+
+  
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
     // console.log(newEmailInput);
     await addDoc(collection(db, 'contactdata'), {
-      ...email, // { "": muslim@gmail.com } => { "email": "muslim@gmail.com" }  key value shouldnot be empty so in email input we have name=email
-    });
+      ...email 
+    }).then(() => {
+       alert('Message has been submitted');})
     // Clear the form
+   
+    setName({
+      name: '',
+    });
     setEmail({
       email: '',
     });
+    setDetails({
+      details: '',
+    });
   };
 
+;
 
-
-
-
-  // const [userCollectionRef ,setuserCollectionRef] = useState();
-  // const handleOnChange = (event) => {
-  //   const {keyName} = event.target;
-  //   const {value} = event.target;
-  //   useEffect(() => {
-  //     onSnapshot(collection(db, "movies"), (snapshot) => {
-  //       snapshot.docChanges().forEach((docChange) => {
-  //         if (docChange.type === "added") {
-  //           setMoviesList((prevMoviesList) => [
-  //             ...prevMoviesList,
-  //             docChange.doc.data(),
-  //           ]);
-  //         } else if (docChange.type === "removed") {
-  //           setMoviesList(
-  //             moviesList.filter((movie) => movie.id !== docChange.doc.id)
-  //           );
-  //         }
-  //       });
-  //     });
-  //   }, []);
-
-
-  //   setuserCollectionRef((prev) => {
-  //     // Copy the previous object (state) and only change the keyName that I want
-  //     // prev is aka newMovieInput
-  //     return { ...prev, [keyName]: value };
-  //   });
-  // };
-
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-  //   // instead of saving new items to our state
-  //   // we will create a post request to add items to our database
-  //   await addDoc(collection(db, "contactdata"), {
-  //     ...userCollectionRef,
-  //   });
-  //   // Clear the form
-  //   setuserCollectionRef({
-  //     name: "",
-  //    email: "",
-  //     details: "",
- 
-  //   });
-  // };
 
 
   // const [loader , setLoader] = useState("false")
@@ -143,7 +115,12 @@ const  ContactUs = ()=> {
       <form className="w-10/12" onSubmit={handleSubmit}>
        <div className="flex flex-col w-2/4 justify-center  items-start space-y-5 px-32">
         <lable className="font-normal text-xl" >Full Name:</lable>
-        <input type="text" className="rounded-lg shadow-md placeholder:text-lg placeholder:px-5 border	" style={{width:"604px",height:"68px"}} placeholder="Enter your full name here..."
+        <input type="text"
+        name="name"
+        value={name.name}
+        onChange={handleOnChange}
+        
+        className="rounded-lg shadow-md placeholder:text-lg placeholder border	px-6" style={{width:"604px",height:"68px"}} placeholder="Enter your full name here..."
         //  value={userCollectionRef.name}
         // onChange={handleOnChange}
         // value={name}
@@ -153,7 +130,7 @@ const  ContactUs = ()=> {
         />
 
         <lable className="font-normal text-xl">Email:</lable>
-        <input   className="rounded-lg shadow-md placeholder:text-lg placeholder:px-5 border"
+        <input   className="rounded-lg shadow-md placeholder:text-lg placeholder border px-6"
          type="email"
          name="email"
          value={email.email}
@@ -170,7 +147,11 @@ const  ContactUs = ()=> {
           // }
         />
         <lable className="font-normal text-xl">Details:</lable>
-        <input type="text"   className="rounded-lg shadow-md placeholder:text-lg placeholder:px-5 border" style={{width:"604px",height:"180px"}} placeholder="Enter your details here..."
+        <input type="text"  
+        name="details"
+        value={details.details}
+        onChange={handleOnChange}
+         className="rounded-lg shadow-md placeholder:text-lg placeholder border px-6" style={{width:"604px",height:"180px"}} placeholder="Enter your details here..."
          
         //  value={userCollectionRef.details}
         //  onChange={handleOnChange}
