@@ -12,7 +12,7 @@ function Steps({ questions }) {
     <div className="main min-h-screen"> 
 
       {currentStep <= 4 && (
-        <div className="w-3/4 flex flex-col mx-16 my-8 ">
+        <div className="w-3/4 flex flex-col mx-32 my-8 ">
 
           <h1 className="md:text-5xl text-2xl font-poppins mb-3">
             let&apos;s match you with the right therapist
@@ -29,7 +29,7 @@ function Steps({ questions }) {
       
 
       {currentStep > 4 && !isCompleted && (
-        <div className="w-4/5 flex flex-col mx-16 my-8 mb-3 font-poppins">
+        <div className="w-4/5 flex flex-col mx-16 lg:ml-80 my-8 mb-3 font-poppins">
           <h1 className="md:text-5xl text-2xl mb-3"> What brings you here? </h1>
           <p className="text-light-gray md:text-xl text-sm mb-1 font-poppins">
             Please specify (in a few sentences) why you&apos;d like counseling.
@@ -44,7 +44,7 @@ function Steps({ questions }) {
 
       {isCompleted && (
         <div className="w-3/4 flex flex-col mx-16 my-8 ">
-          <h1 className="md:text-5xl text-2xl mb-3">
+          <h1 className="md:text-5xl text-2xl font-poppins mb-3">
             {' '}
             Submit your appointment{' '}
           </h1>
@@ -72,98 +72,97 @@ function Steps({ questions }) {
               </div>
             ) : (
               <div className="w-full">
-                {questions.map((question, index) => {
-                  
-                  return currentStep === index ? (
-                    
-                    <div className=" h-full ">
-                      <h1 className="text-3xl font-poppins">
-                        {question.title}
-                      </h1>
-                     
-                      {question.type === 'radio' ? (
-                        <div>
-                          {question.options.map((option) => {
-                            return (
-                              <div className="my-5">
-                                <input
-                                  type="radio"
-                                  name={question.title}
-                                  value={option}
-                                  onClick={(event) => {
-                                    setEnteredData({
-                                      ...enteredData,
-                                      [question.title]: event.target.value,
-                                    });
-                                  }}
-                                  checked={
-                                    enteredData[question.title] === option
-                                  }
-                                />
-                                <label
-                                  className="text-2xl ml-4 font-poppins"
-                                  htmlFor={question.title}
-                                >
-                                  {option}
-                                </label>
-                              </div>
-                            );
-                          })}
-                        </div>
-                      ) : (
-                        
-                        question.type === 'select' && (
 
-                          
-                          <div>
-                          {question.options.map((option) => {
-                          
-  
-  
-                            return (
-                              <div className="my-5 w-full rounded-md border-2 h-20 " >
+
+
+
+{questions.map((question, index) => {
+    let component;
+    if (question.type === 'radio') {
+      const radioOptions = question.options.map((option) => {
+            return (
+                <div className="my-5">
+                <input
+                    type="radio"
+                    name={question.title}
+                    value={option}
+                    onClick={(event) => {
+                    setEnteredData({
+                        ...enteredData,
+                        [question.title]: event.target.value,
+                    });
+                    }}
+                    checked={enteredData[question.title] === option}
+                />
+                <label
+                    className="text-2xl ml-4 font-poppins"
+                    htmlFor={question.title}
+                >
+                    {option}
+                </label>
+                </div>
+            );
+        });
+        component = <div>{radioOptions}</div>;
+    } else if (question.type === 'select') {
+      const radioOptions = question.options.map((option) => {
+        return (
+          <div className="my-5 w-full rounded-md border-2 h-20 " >
       
-                                <input 
-                                 className="text-2xl font-poppins w-full h-20 text-start pl-6"
-                                  type="button"
-                                  name={question.title}
-                                  value={option}
-                                  onClick={(event) => {
-                                 
-                                   
-                                    event.target.style.backgroundColor = '#2DD3E3';
-                                    setEnteredData({
-                                      ...enteredData,
-                            
-                                      [question.title]: event.target.value,
-                                      
-                                    });
-                                   
-                                  }}
-                                  checked={
-                                    enteredData[question.title] === option
-                                    
-                                  }
-                                />
-  
-                              </div>
-                            
-                )})}
-                        </div>
-                         )
-                       
-            
-                       )
-                  
-                      
-                  }
+          <input 
+           className="text-2xl font-poppins w-full h-20 text-start pl-6"
+            type="button"
+            name={question.title}
+            value={option}
+            onClick={(event) => {
+           
+             
+              event.target.style.backgroundColor = '#2DD3E3';
+              setEnteredData({
+                ...enteredData,
+      
+                [question.title]: event.target.value,
                 
-                
-                
+              });
+             
+            }}
+            checked={
+              enteredData[question.title] === option
+              
+            }
+          />
 
-                    </div>
-                  ) : null;
-                })}
+        </div>
+        );
+    });
+    component = <div>{radioOptions}</div>;
+    }
+ 
+     else {
+      component = (
+        <input
+        className="h-3/4 border w-full font-poppins "
+        type="text"
+        value={enteredData[question.title]}
+        onChange={(event) => {
+          setEnteredData({
+            ...enteredData,
+            [question.title]: event.target.value,
+          });
+        }}
+      />
+            );
+    }
+
+    return currentStep === index ? (
+        <div className=" h-full ">
+            <h1 className="text-3xl font-poppins">{question.title}</h1>
+            {component}
+        </div>
+    ) : (
+        ''
+    );
+})}
                 
               </div>
             )}
