@@ -1,8 +1,10 @@
 import React,{ useState } from 'react';
 import {useNavigate, Link} from 'react-router-dom';
 import {createUserWithEmailAndPassword,sendEmailVerification} from 'firebase/auth';
-import {auth} from "../../Firebase/Firebase";
+import { collection, addDoc } from "firebase/firestore";
+import {auth,db} from "../../Firebase/Firebase";
 import signupImage from "./SignupImage.png";
+
 
 
 
@@ -15,7 +17,14 @@ const [email, setEmail] = useState('')
 const [password, setPassword] = useState('')
 const [confirmPassword, setConfirmPassword] = useState('')
 const [error, setError] = useState('')
+const [val, setVal] = useState({})
 const navigate = useNavigate()
+const [userinformationList, setUserinformationList] = useState([]);
+
+userinformationList.map((users) => {
+        return{...users}   ;
+       })
+
 
 
   const validatePassword = () => {
@@ -49,6 +58,32 @@ const register = e => {
    setConfirmPassword('')
  }
 
+
+ const change= event =>{
+  const keyName=event.target.name;
+  const keyvalue=event.target.value;
+  setVal((prev) =>{
+  return{...prev,[keyName]:keyvalue};
+  });
+  }
+
+
+  const create = async(event) => {
+      event.preventDefault();
+  setUserinformationList((prev) => {
+        return [val,...prev];
+      });
+
+const docRef = await addDoc(collection(db, "signupData"), {
+        ...val
+      });
+console.log(docRef)
+    };
+
+
+
+
+console.log(userinformationList)
   return (
 <div className='my-20'>
     <div className='flex flex-wrap justify-center items-center'>
@@ -68,14 +103,22 @@ const register = e => {
             <div className='flex flex-row gap-3 p-2 justify-center items-center'>
 
             <input
+              onChange={change}
+              value={val.firstName}
+              name="firstName"
               type="text"
               className="form-control block w-56 px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-cyan-400 focus:outline-none placeholder:text-sm"
               placeholder="First Name"
+
             />
              <input
               type="text"
+              name="lastName"
+              value={val.lastName}
+              onChange={change}
               className="form-control block w-56 px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-cyan-400 focus:outline-none placeholder:text-sm"
               placeholder="Last Name"
+
             />
             </div>
 
@@ -115,20 +158,38 @@ const register = e => {
                 <h1 className='text-gray-700'>
                     Birth Date
                 </h1>
-                <input type="text" placeholder='DD' className='w-14 form-control block px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-cyan-400 focus:outline-none placeholder:text-sm'/>
-                <input type="text" placeholder='MM' className='w-16 form-control block px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-cyan-400 focus:outline-none placeholder:text-sm'/>
-                <input type="text" placeholder='YEAR' className='w-36 form-control block px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-cyan-400 focus:outline-none placeholder:text-sm'/>
+                <input
+                name="day"
+                value={val.day}
+                onChange={change}
+                type="text" placeholder='DD' className='w-14 form-control block px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-cyan-400 focus:outline-none placeholder:text-sm'/>
+                <input
+                name="month"
+                value={val.month}
+                onChange={change}
+                type="text" placeholder='MM' className='w-16 form-control block px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-cyan-400 focus:outline-none placeholder:text-sm'/>
+                <input
+                name="year"
+                value={val.year}
+                onChange={change}type="text" placeholder='YEAR' className='w-36 form-control block px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-cyan-400 focus:outline-none placeholder:text-sm'/>
 
             </div>
             <div className='flex flex-row justify-center gap-10'>
             <button
               type='submit'
+
               className="inline-block px-7 py-2 w-44 h-14 bg-white text-cyan-400 font-sans font-semibold text-lg border border-cyan-400 leading-9 rounded shadow-md hover:text-white hover:bg-cyan-400 hover:shadow-lg focus:bg-cyan-40 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
             >
               Signup
             </button>
 
-
+            <button
+              type='button'
+              onClick={create}
+              className="inline-block px-7 py-2 w-44 h-14 bg-white text-cyan-400 font-sans font-semibold text-lg border border-cyan-400 leading-9 rounded shadow-md hover:text-white hover:bg-cyan-400 hover:shadow-lg focus:bg-cyan-40 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+            >
+              submit
+            </button>
              <button
                type="button"
                className="inline-block px-7 py-2 w-44 h-14 bg-cyan-400 text-black font-sans font-semibold text-lg leading-9 rounded shadow-md hover:bg-cyan-100 hover:text-cyan-700 hover:shadow-lg focus:bg-white focus:shadow-lg focus:outline-none focus:ring-0 active:bg-cyan-600 active:shadow-lg transition duration-150 ease-in-out"
