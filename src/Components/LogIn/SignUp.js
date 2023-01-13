@@ -19,11 +19,7 @@ const [confirmPassword, setConfirmPassword] = useState('')
 const [error, setError] = useState('')
 const [val, setVal] = useState({})
 const navigate = useNavigate()
-const [userinformationList, setUserinformationList] = useState([]);
 
-userinformationList.map((users) => {
-        return{...users}   ;
-       })
 
 
 
@@ -65,25 +61,26 @@ const register = e => {
   setVal((prev) =>{
   return{...prev,[keyName]:keyvalue};
   });
+  setEmail('')
+  setPassword('')
+  setConfirmPassword('')
   }
 
 
   const create = async(event) => {
       event.preventDefault();
-  setUserinformationList((prev) => {
-        return [val,...prev];
+
+
+ await addDoc(collection(db, "signupData"), {
+        ...val,email,password,confirmPassword
       });
 
-const docRef = await addDoc(collection(db, "signupData"), {
-        ...val
-      });
-console.log(docRef)
     };
 
 
 
 
-console.log(userinformationList)
+
   return (
 <div className='my-20'>
     <div className='flex flex-wrap justify-center items-center'>
