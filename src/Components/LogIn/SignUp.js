@@ -1,9 +1,33 @@
-import React from 'react';
-import { Link } from "react-router-dom";
+import React, {  useState } from "react";
+import { Link , useNavigate} from "react-router-dom";
+import {signInWithPopup} from "firebase/auth";
+import {auth,provider,facebookProvider} from "../../Firebase"
 import signupImage from "./SignupImage.png";
 
 
 function SignUp() {
+
+  const navigate = useNavigate()
+
+  const [setValue] = useState('')
+  const handleClick =()=>{
+      signInWithPopup(auth,provider).then((data)=>{
+          navigate('/')
+          setValue(data.user.email)
+          localStorage.setItem("email",data.user.email)
+          navigate('/')
+      })
+  }
+
+  const signInWithFacebook =()=>{
+  
+    signInWithPopup(auth,facebookProvider).then((data)=>{
+      navigate('/')
+      setValue(data.user.email)
+    }
+    ).catch(err => console.log(err.message))
+  }
+
   return (
 <div className='my-20'>
     <div className='flex flex-wrap justify-center items-center'>
@@ -91,6 +115,8 @@ function SignUp() {
 
           <div className="flex gap-10 justify-center items-center">
           <button
+                        onClick={handleClick}
+
               type="button"
               data-mdb-ripple="true"
               data-mdb-ripple-color="light"
@@ -103,6 +129,7 @@ function SignUp() {
                 />
               </svg>
             </button> <button
+              onClick={signInWithFacebook}
               type="button"
               data-mdb-ripple="true"
               data-mdb-ripple-color="light"
