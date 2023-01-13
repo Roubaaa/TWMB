@@ -4,13 +4,13 @@ import { collection, addDoc } from "firebase/firestore";
 import {db} from "../../Firebase"
 // import { Link } from "react-router-dom";
 import image from "./Group.png";
-import image1 from "./Ellipse1.png";
 
 const  ContactUs = ()=> {
     
   const[name , setName] = useState("");
   const[email , setEmail] = useState({});
   const[details , setDetails] = useState("");
+  const[questions , setQuestion] = useState("")
 
     // __________this handling  email,name,details input___________________
   const handleOnChange = (event) => {
@@ -26,6 +26,9 @@ const  ContactUs = ()=> {
       return { ...prev, [keyName]: value };
     });
     setName((prev) => {
+      return { ...prev, [keyName]: value };
+    });
+    setQuestion((prev) => {
       return { ...prev, [keyName]: value };
     });
   };
@@ -50,35 +53,20 @@ const  ContactUs = ()=> {
     setDetails({
       details: '',
     });
+    setQuestion({
+      questions: '',
+    });
   };
 
-;
-
-
-
-  // const [loader , setLoader] = useState("false")
-
-  // const handleSubmit = (e)=> {
-
-  //   e.preventDefault();
-  //   setLoader(true)
-  //   db.collection('contactdata').add({
-  //     name:'name',
-  //     email:'email',
-  //     details:'details',
-  //   }).then(() => {
-  //     alert('message has been submitted successfully');
-  //     setLoader(false)
-  //   })
-  //   .catch((error) => {
-  //     alert(error.message);
-  //     setLoader(false)
+  // const questionsChangeHandler = (event) => {
+  //   // console.log('selected question:', event.target.value);
+  //   const {
+  //     target: { name: keyName, value },
+  //   } = event;
+  //   setQuestion((prev) => {
+  //     return { ...prev, [keyName]: value };
   //   });
-
-  //   setName("");
-  //   setEmail("");
-  //   setDetails("");
-  // };
+  // }
 
   return (
 
@@ -91,14 +79,16 @@ const  ContactUs = ()=> {
 <div className="flex flex-row w-10/12	 mt-20 gap-56">
     <div className="w-2/4 mt-6">
       <h1 className="text-2xl font-medium	" >Type of contact</h1>
-      <div className="space-y-5 mt-5">
-        <div className="flex flex-row"><img src={image1} alt="" className="w-5 h-5"/><h1 className="text-xl">I have a question about the service.</h1></div>
-        <div className="flex flex-row"><img src={image1} alt="" className="w-5 h-5"/><h1 className="text-xl">I have a question about the service.</h1></div>
-        <div className="flex flex-row"><img alt="" src={image1} className="w-5 h-5"/><h1 className="text-xl">I have a question about the service.</h1></div>
-        <div className="flex flex-row"><img alt="" src={image1} className="w-5 h-5"/><h1 className="text-xl">I have a question about the service.</h1></div>
-        <div className="flex flex-row"><img alt="" src={image1} className="w-5 h-5"/><h1 className="text-xl">I have a question about the service.</h1></div>
-        <div className="flex flex-row"><img alt="" src={image1} className="w-5 h-5"/><h1 className="text-xl">I have a question about the service.</h1></div>
-
+      <div className="space-y-5 mt-5" onChange={handleOnChange}>
+       
+        <label htmlFor="ques1">I have a question about the service.<input type="radio" id="ques1" name="questions" value={questions.QuestionA} /></label><br/>
+        <label htmlFor="ques2">I am a registered client and I need support.<input type="radio" id="ques2" name="questions" value={questions.QuestionB} /></label><br/>
+        <label htmlFor="ques3">I am a counselor interested in joining.<input type="radio" id="ques3" name="questions" value={questions.QuestionC}  /></label><br/>
+        <label htmlFor="ques4">I am a registered counselor and I need support.<input type="radio" id="ques4" name="questions" value={questions.QuestionD}  /></label><br/>
+        <label htmlFor="ques5">I have a business-related inquiry.<input type="radio" id="ques5" name="questions" value={questions.QuestionE}  /></label><br/>
+        <label htmlFor="ques6">I am interested in Healing Online for my organization.<input type="radio" id="ques6" name="questions" value={questions.QuestionF}  /></label><br/>
+        <label htmlFor="ques7">I have a billing related question.<input type="radio" id="ques7" name="questions" value={questions.QuestionG}  /></label><br/>
+       
 
       </div>
     </div>
@@ -114,22 +104,17 @@ const  ContactUs = ()=> {
 <div className="flex flex-row justify-center items-center my-10">
       <form className="w-10/12" onSubmit={handleSubmit}>
        <div className="flex flex-col w-2/4 justify-center  items-start space-y-5 px-32">
-        <lable className="font-normal text-xl" >Full Name:</lable>
+        <label htmlFor="name" className="font-normal text-xl" >Full Name:
         <input type="text"
         name="name"
         value={name.name}
         onChange={handleOnChange}
         
         className="rounded-lg shadow-md placeholder:text-lg placeholder border	px-6" style={{width:"604px",height:"68px"}} placeholder="Enter your full name here..."
-        //  value={userCollectionRef.name}
-        // onChange={handleOnChange}
-        // value={name}
-        // onChange={(e)=>
-        // setName(e.target.value)
-        // }
-        />
+      
+        /></label>
 
-        <lable className="font-normal text-xl">Email:</lable>
+        <label htmlFor="email" className="font-normal text-xl">Email:
         <input   className="rounded-lg shadow-md placeholder:text-lg placeholder border px-6"
          type="email"
          name="email"
@@ -137,29 +122,18 @@ const  ContactUs = ()=> {
          onChange={handleOnChange}
          style={{width:"604px",height:"68px"}
         } placeholder="Enter your email address here..."
-        
-    
-          // value={userCollectionRef.email}
-          // onChange={handleOnChange}
-          // value={email}
-          // onChange={(e)=>
-          // setEmail(e.target.value)
-          // }
+
         />
-        <lable className="font-normal text-xl">Details:</lable>
+        </label>
+        <label htmlFor="detail" className="font-normal text-xl">Details:
         <input type="text"  
         name="details"
         value={details.details}
         onChange={handleOnChange}
          className="rounded-lg shadow-md placeholder:text-lg placeholder border px-6" style={{width:"604px",height:"180px"}} placeholder="Enter your details here..."
          
-        //  value={userCollectionRef.details}
-        //  onChange={handleOnChange}
-        // // value={details}
-        // onChange={(e)=>
-        // setDetails(e.target.value)
-        // }
-        />
+      
+        /></label>
         <button  type="submit"
               aria-label="Send"
               className='w-56	 h-16 rounded-md font-normal text-2xl mt-20'
