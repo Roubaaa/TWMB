@@ -21,67 +21,59 @@ const [val, setVal] = useState({})
 const navigate = useNavigate()
 
 
+const change= event =>{
+ const keyName=event.target.name;
+ const keyvalue=event.target.value;
+ setVal((prev) =>{
+ return{...prev,[keyName]:keyvalue};
+ });
+ setEmail('')
+ setPassword('')
+ setConfirmPassword('')
+ }
 
-
-  const validatePassword = () => {
-  let isValid = true
-  if (password !== '' && confirmPassword !== ''){
-    if (password !== confirmPassword) {
-      isValid = false
-      setError('Passwords does not match')
-    }
-  }
-  return isValid
+ const validatePassword = () => {
+ let isValid = true
+ if (password !== '' && confirmPassword !== ''){
+   if (password !== confirmPassword) {
+     isValid = false
+     setError('Passwords does not match')
+   }
+ }
+ return isValid
 }
 
 
-const register = e => {
-   e.preventDefault()
-   setError('')
-   if(validatePassword()) {
-     // Create a new user with email and password using firebase
-       createUserWithEmailAndPassword(auth, email, password)
-       .then(() => {
-         sendEmailVerification(auth.currentUser)
+ const create = async(event) => {
+     event.preventDefault();
+     setError('')
+
+await addDoc(collection(db, "signupData"), {
+       ...val,email,password,confirmPassword
+     });
+
+     if(validatePassword()) {
+       // Create a new user with email and password using firebase
+         createUserWithEmailAndPassword(auth, email, password)
          .then(() => {
-            navigate('/verify-email')
-         }).catch((err) => alert(err.message))
-       })
-       .catch(err => setError(err.message))
-   }
-   setEmail('')
-   setPassword('')
-   setConfirmPassword('')
- }
+           sendEmailVerification(auth.currentUser)
+           .then(() => {
+              navigate('/verify-email')
+           }).catch((err) => alert(err.message))
+         })
+         .catch(err => setError(err.message))
+     }
+     setEmail('')
+     setPassword('')
+     setConfirmPassword('')
 
-
- const change= event =>{
-  const keyName=event.target.name;
-  const keyvalue=event.target.value;
-  setVal((prev) =>{
-  return{...prev,[keyName]:keyvalue};
-  });
-  setEmail('')
-  setPassword('')
-  setConfirmPassword('')
-  }
-
-
-  const create = async(event) => {
-      event.preventDefault();
-
-
- await addDoc(collection(db, "signupData"), {
-        ...val,email,password,confirmPassword
-      });
-
-    };
+   };
 
 
 
 
 
-  return (
+return (
 <div className='my-20'>
     <div className='flex flex-wrap justify-center items-center'>
         <div className='w-2/4'>
@@ -96,7 +88,7 @@ const register = e => {
         {error && <div className='auth__error'>{error}</div>}
         </div>
         <div className='w-8/12 shadow-lg rounded-lg py-7'>
-           <form onSubmit={register} name='registration_form'>
+           <form onSubmit={create} name='registration_form'>
             <div className='flex flex-row gap-3 p-2 justify-center items-center'>
 
             <input
@@ -180,13 +172,6 @@ const register = e => {
               Signup
             </button>
 
-            <button
-              type='button'
-              onClick={create}
-              className="inline-block px-7 py-2 w-44 h-14 bg-white text-cyan-400 font-sans font-semibold text-lg border border-cyan-400 leading-9 rounded shadow-md hover:text-white hover:bg-cyan-400 hover:shadow-lg focus:bg-cyan-40 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-            >
-              submit
-            </button>
              <button
                type="button"
                className="inline-block px-7 py-2 w-44 h-14 bg-cyan-400 text-black font-sans font-semibold text-lg leading-9 rounded shadow-md hover:bg-cyan-100 hover:text-cyan-700 hover:shadow-lg focus:bg-white focus:shadow-lg focus:outline-none focus:ring-0 active:bg-cyan-600 active:shadow-lg transition duration-150 ease-in-out"
