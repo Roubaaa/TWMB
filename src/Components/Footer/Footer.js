@@ -1,13 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Footer.css";
 import { Link } from "react-router-dom";
 import { IoPaperPlane } from "react-icons/io5";
 import { AiOutlineTwitter, AiOutlineGoogle} from "react-icons/ai";
 import { SiFacebook } from "react-icons/si";
-
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../../Firebase/Firebase";
 
 
 export default function Footer() {
+
+  const [input, setInput] =useState(""); 
+  const inputHandler = (e) => {
+    e.preventDefault();
+    setInput(e.target.value)
+  }; 
+
+
+
+  const submitHandler = async (event) => {
+    event.preventDefault();
+    await addDoc(collection(db, "Newsletter"), {
+      email: input
+    });
+
+    setInput("")
+  };
+  
   return (
 
       
@@ -36,19 +55,24 @@ export default function Footer() {
     </p>
     <div className="searchparent sm:flex sm:items-center sm:justify-between ">
     
-    <div className="search flex items-center justify-between border-gray-500">
-          <input
-            type="text"
-            placeholder="Enter Your e-mail"
-            className=" searchh "
-          />
-          <button type="button"
-            className="btn duration-300 px-5 py-2.5 font-[Poppins]
-            text-black md:w-auto border-gray-500"
-          >
-        <IoPaperPlane />
-          </button>
-        </div>
+    <form className="search flex items-center justify-between border-gray-500" onSubmit={submitHandler}>
+      
+      <input
+          type="email"
+           onChange ={inputHandler}
+          value ={input}
+          placeholder="Enter Your e-mail"
+          className=" searchh "
+        />
+        <button type="submit"
+          className="btn duration-300 px-5 py-2.5 font-[Poppins]
+          text-black md:w-auto border-gray-500"
+        >
+          
+      <IoPaperPlane />
+        </button>
+        
+      </form>
           
         <div className="icons flex mt-4 space-x-6 sm:justify-center sm:mt-0">
 

@@ -27,5 +27,5 @@ const provider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
 
 // in order to use this auth instance elsewhere
-export {auth,db,provider,facebookProvider};
+export { auth, db, provider, facebookProvider};
 export const database = getDatabase(app);
