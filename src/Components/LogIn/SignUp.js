@@ -1,8 +1,8 @@
 import React,{ useState } from 'react';
 import {useNavigate, Link} from 'react-router-dom';
-import {createUserWithEmailAndPassword,sendEmailVerification} from 'firebase/auth';
+import {createUserWithEmailAndPassword,sendEmailVerification,signInWithPopup} from 'firebase/auth';
 import { collection, addDoc } from "firebase/firestore";
-import {auth,db} from "../../Firebase/Firebase";
+import {auth,db,provider,facebookProvider} from "../../Firebase/Firebase";
 import signupImage from "./SignupImage.png";
 
 
@@ -18,6 +18,7 @@ const [password, setPassword] = useState('')
 const [confirmPassword, setConfirmPassword] = useState('')
 const [error, setError] = useState('')
 const [val, setVal] = useState({})
+const [setValue] = useState('')
 const navigate = useNavigate()
 
 
@@ -27,9 +28,6 @@ const change= event =>{
  setVal((prev) =>{
  return{...prev,[keyName]:keyvalue};
  });
- setEmail('')
- setPassword('')
- setConfirmPassword('')
  }
 
  const validatePassword = () => {
@@ -48,7 +46,7 @@ const change= event =>{
      event.preventDefault();
      setError('')
 
-await addDoc(collection(db, "signupData"), {
+   await addDoc(collection(db, "signupData"), {
        ...val,email,password,confirmPassword
      });
 
@@ -66,10 +64,26 @@ await addDoc(collection(db, "signupData"), {
      setEmail('')
      setPassword('')
      setConfirmPassword('')
+};
 
-   };
 
+const handleClick =()=>{
+      signInWithPopup(auth,provider).then((data)=>{
+          navigate('/')
+          setValue(data.user.email)
+          localStorage.setItem("email",data.user.email)
+          navigate('/')
+      })
+  }
 
+  const signInWithFacebook =()=>{
+
+    signInWithPopup(auth,facebookProvider).then((data)=>{
+      navigate('/')
+      setValue(data.user.email)
+    }
+    ).catch(err => console.log(err.message))
+  }
 
 
 
@@ -191,30 +205,27 @@ return (
 
           <div className="flex gap-10 justify-center items-center">
           <button
+              onClick={handleClick}
               type="button"
-              data-mdb-ripple="true"
-              data-mdb-ripple-color="light"
-              className="inline-block p-3 bg-cyan-400 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" className="w-4 h-4">
-                <path
-                  fill="currentColor"
-                  d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
-                />
-              </svg>
-            </button> <button
-              type="button"
-              data-mdb-ripple="true"
-              data-mdb-ripple-color="light"
-              className="inline-block p-3 bg-cyan-400 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" className="w-4 h-4">
-                <path
-                  fill="currentColor"
-                  d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
-                />
-              </svg>
-            </button>
+               data-mdb-ripple="true"
+               data-mdb-ripple-color="light"
+               className="inline-block p-3 bg-cyan-400 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
+             >
+             <img src="https://cdn-icons-png.flaticon.com/512/1240/1240979.png" className="w-4 h-4 text-white  " alt=""/>
+             </button> <button
+               onClick={signInWithFacebook}
+               type="button"
+               data-mdb-ripple="true"
+               data-mdb-ripple-color="light"
+               className="inline-block p-3 bg-cyan-400 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
+             >
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" className="w-4 h-4">
+                 <path
+                   fill="currentColor"
+                   d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
+                 />
+               </svg>
+             </button>
           </div>
 
         </div>
