@@ -131,28 +131,28 @@ console.log(questions)
     <div>
 <div className="flex flex-wrap justify-center items-center">
   <div className="w-10/12	">
-    <h1 className="text-5xl	w-10/12 mt-10">SEND OUS YOUR REQUEST</h1>
-    <h1 className="text-3xl	text-gray-400 mt-5">Do you have a question, concern, idea, feedback, or problem? If you need assistance, please fill out the form below and we&apos;d be happy to help!</h1>
+    <h1 className="	w-10/12 mt-10 font-normal font-sans text-2xl  md:text-3xl">SEND US YOUR REQUEST</h1>
+    <h1 className=" mt-5 text-zinc-500 font-sans text-s sm:text-sm md:text-xl">Do you have a question, concern, idea, feedback, or problem? If you need assistance, please fill out the form below and we&apos;d be happy to help!</h1>
   </div>
 <div className="flex flex-row w-10/12	 mt-20 gap-56">
-    <div className="w-2/4 mt-6">
-      <h1 className="text-2xl font-medium	" >Type of contact</h1>
+    <div className=" w-2/4 mt-6">
+      <h1 className="text-s sm:text-sm md:text-2xl font-medium	" >Type of contact</h1>
 
-      <div className="space-y-5 mt-5"  >
+      <div className="flex flex-col mt-5"  >
 
-        <label htmlFor="ques1">I have a question about the service.<input type="radio" id="ques1" name="questions" onChange={()=> handleOnChange1("first")} value={first} /></label><br/>
-        <label htmlFor="ques2">I am a registered client and I need support.<input type="radio" id="ques2" name="questions" onChange={()=> handleOnChange1("second")} value={second} /></label><br/>
-        <label htmlFor="ques3">I am a counselor interested in joining.<input type="radio" id="ques3" name="questions" onChange={()=> handleOnChange1("third")} value={third}  /></label><br/>
-        <label htmlFor="ques4">I am a registered counselor and I need support.<input type="radio" id="ques4" name="questions" onChange={()=> handleOnChange1("fourth")} value={fourth}  /></label><br/>
-        <label htmlFor="ques5">I have a business-related inquiry.<input type="radio" id="ques5" name="questions" onChange={()=> handleOnChange1("fifth")} value={fifth}  /></label><br/>
-        <label htmlFor="ques6">I am interested in Healing Online for my organization.<input type="radio" id="ques6" name="questions" onChange={()=> handleOnChange1("sixth")} value={sixth}  /></label><br/>
-        <label htmlFor="ques7">I have a billing related question.<input type="radio" id="ques7" name="questions" onChange={()=> handleOnChange1("seventh")} value={seventh}  /></label><br/>
+        <label htmlFor="ques1">I have a question about the service.<input className="float-left mr-4 mt-2 md-mr-2 md-mt-0 md-float-left" type="radio" id="ques1" name="questions" onChange={()=> handleOnChange1("first")} value={first} /></label><br/>
+        <label htmlFor="ques2">I am a registered client and I need support.<input className="float-left mr-4 mt-2" type="radio" id="ques2" name="questions" onChange={()=> handleOnChange1("second")} value={second} /></label><br/>
+        <label htmlFor="ques3">I am a counselor interested in joining.<input className="float-left mr-4 mt-2" type="radio" id="ques3" name="questions" onChange={()=> handleOnChange1("third")} value={third}  /></label><br/>
+        <label htmlFor="ques4">I am a registered counselor and I need support.<input className="float-left mr-4 mt-2" type="radio" id="ques4" name="questions" onChange={()=> handleOnChange1("fourth")} value={fourth}  /></label><br/>
+        <label htmlFor="ques5">I have a business-related inquiry.<input className="float-left mr-4 mt-2" type="radio" id="ques5" name="questions" onChange={()=> handleOnChange1("fifth")} value={fifth}  /></label><br/>
+        <label htmlFor="ques6">I am interested in Healing Online for my organization.<input className="float-left mr-4 mt-2" type="radio" id="ques6" name="questions" onChange={()=> handleOnChange1("sixth")} value={sixth}  /></label><br/>
+        <label htmlFor="ques7">I have a billing related question.<input className="float-left mr-4 mt-2 mt-2" type="radio" id="ques7" name="questions" onChange={()=> handleOnChange1("seventh")} value={seventh}  /></label><br/>
 
 
       </div>
     </div>
-    <div className="w-2/4">
-      <img src={image} alt='' className="" />
+    <div className="">
+      <img src={image} alt='' className="sm:w-auto w-auto h-auto " />
     </div>
 </div>
 
@@ -160,21 +160,21 @@ console.log(questions)
 
 </div>
 
-<div className="flex flex-row justify-center items-center my-10">
-      <form className="w-10/12" onSubmit={handleSubmit}>
-       <div className="flex flex-col w-2/4 justify-center  items-start space-y-5 px-32">
-        <label htmlFor="name" className="font-normal text-xl" >Full Name:
+<div className="flex flex-row justify-center items-center my-12">
+      <form className="w-10/12  " onSubmit={handleSubmit}>
+       <div className="flex flex-col sm:w-2/4 w-2/4 justify-center  items-start space-y-5  sm:px-28 px-48">
+        <label htmlFor="name" className="font-normal text-l sm:text-sm md:text-xl" >Full Name:
         <input type="text"
         name="name"
         value={name.name}
         onChange={handleOnChange}
 
-        className="rounded-lg shadow-md placeholder:text-lg placeholder border	px-6" style={{width:"604px",height:"68px"}} placeholder="Enter your full name here..."
+        className="rounded-lg shadow-md sm:placeholder:text-lg placeholder:text-sm placeholder border my-4	px-4" style={{width:"604px",height:"68px"}} placeholder="Enter your full name here..."
 
         /></label>
 
-        <label htmlFor="email" className="font-normal text-xl">Email:
-        <input   className="rounded-lg shadow-md placeholder:text-lg placeholder border px-6"
+        <label htmlFor="email" className="font-normal text-l sm:text-sm md:text-xl ">Email:
+        <input   className="rounded-lg shadow-md sm:placeholder:text-lg placeholder:text-sm placeholder border my-4 px-4 "
          type="email"
          name="email"
          value={email.email}
@@ -184,23 +184,23 @@ console.log(questions)
 
         />
         </label>
-        <label htmlFor="detail" className="font-normal text-xl">Details:
+        <label htmlFor="detail" className="font-normal text-l sm:text-sm md:text-xl">Details:
         <input type="text"
         name="details"
         value={details.details}
         onChange={handleOnChange}
-         className="rounded-lg shadow-md placeholder:text-lg placeholder border px-6" style={{width:"604px",height:"180px"}} placeholder="Enter your details here..."
+         className=" rounded-lg shadow-md sm:placeholder:text-lg placeholder:text-sm  placeholder border my-4 px-4" style={{width:"604px",height:"180px"}} placeholder="Enter your details here..."
 
 
         /></label>
         <button  type="submit"
               aria-label="Send"
-              className='w-56	 h-16 rounded-md font-normal text-2xl mt-20'
+              className='w-28 sm:w-56	 h-8 sm:h-16 rounded-md font-normal text-l sm:text-2xl mt-20'
              style={{background: '#2DD3E3'}}>SUBMIT</button>
         </div>
       </form>
-      <div className="flex w-10/12 justify-center items-center" style={{height:'581.71px'}}>
-        <div className="flex flex-col rounded-lg w-96	justify-center items-start text-2xl" style={{background:"#EAF8F9", borderRadius:'35px'}}>
+      <div className="flex w-56 justify-center items-center mx-20 mt-96 sm:my-48">
+        <div className="flex flex-col rounded-lg w-96	justify-center items-start text-s sm:text-2xl" style={{background:"#EAF8F9", borderRadius:'35px'}}>
           <h1 className="ml-5 my-2 font-normal">Find US At:</h1>
           <h1 className="ml-5 font-light	text-gray-500		">Nergiz Plaza</h1>
           <h1 className="ml-5 font-light	text-gray-500		">3rd Floor</h1>
