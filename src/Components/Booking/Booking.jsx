@@ -105,37 +105,29 @@ function Steps({ questions }) {
         });
         component = <div>{radioOptions}</div>;
     } else if (question.type === 'select') {
-      const radioOptions = question.options.map((option) => {
-        return (
-          <div className="my-5 w-full rounded-md border-2 h-20 " >
-      
-          <input 
-           className="text-2xl font-poppins w-full h-20 text-start pl-6"
-            type="button"
-            name={question.title}
-            value={option}
-            onClick={(event) => {
-           
-             
-              event.target.style.backgroundColor = '#2DD3E3';
-              setEnteredData({
-                ...enteredData,
-      
-                [question.title]: event.target.value,
-                
-              });
-             
-            }}
-            checked={
-              enteredData[question.title] === option
-              
-            }
-          />
+      const [selectedOption, setSelectedOption] = useState(null);
+const selectOptions = question.options.map((option, i) => {
+  return (
+    <div className="my-5 w-full rounded-md border-2 h-20" >
+      <input 
+        className={`text-2xl font-poppins w-full h-20 text-start pl-6 ${selectedOption === i ? "bg-light-blue" : ''}`}
+        type="button"
+        name={question.title}
+        value={option}
+        onClick={(event) => {
+          setSelectedOption(i);
+          setEnteredData({
+            ...enteredData,
+            [question.title]: event.target.value,
+          });
+        }}
+        checked={enteredData[question.title] === option}
+      />
+    </div>
+  );
+});
+component = <div>{selectOptions}</div>;
 
-        </div>
-        );
-    });
-    component = <div>{radioOptions}</div>;
     }
  
      else {
@@ -240,7 +232,7 @@ const questions = [
     options: [
       'I prefer a male counselor',
       'I prefer a female counselor',
-      'I prefer an older counselor (45+)',
+      'I  prefer an older counselor (45+)',
       'I prefer a non-religious counselor',
       'I prefer an older counselor (45+)',
     ],
