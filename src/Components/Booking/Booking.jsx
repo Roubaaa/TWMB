@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { collection, addDoc } from "firebase/firestore";
+import {db} from "../../Firebase";
 import Button from './Button';
 import './booking.css';
 
@@ -7,9 +9,29 @@ function Steps({ questions }) {
   const [enteredData, setEnteredData] = useState({});
   const [isCompleted, setIsCompleted] = useState(false);
 
-                         
+console.log(enteredData)
+
+
+
+const handleSubmit = async (event) => {
+      event.preventDefault();
+      // console.log(newEmailInput);
+      await addDoc(collection(db,'Q1Bokking'), {
+      ...enteredData,
+    });
+
+      if (currentStep !== questions.length - 1) {
+        setCurrentStep(currentStep + 1);
+      }
+      if (currentStep === questions.length - 1) {
+         setIsCompleted(true);
+
+      }
+  };
+
+
   return (
-    <div className="main min-h-screen"> 
+    <div className="main min-h-screen">
 
       {currentStep <= 4 && (
         <div className="w-3/4 flex flex-col mx-32 my-8 ">
@@ -26,7 +48,7 @@ function Steps({ questions }) {
         </div>
       )}
 
-      
+
 
       {currentStep > 4 && !isCompleted && (
         <div className="w-4/5 flex flex-col mx-16 lg:ml-80 my-8 mb-3 font-poppins">
@@ -40,7 +62,7 @@ function Steps({ questions }) {
           </p>
         </div>
       )}
-      
+
 
       {isCompleted && (
         <div className="w-3/4 flex flex-col mx-16 my-8 ">
@@ -58,8 +80,9 @@ function Steps({ questions }) {
       <div style={{ height: '64vh' }} className="flex justify-center min-h-fit">
         <div
           className="w-3/5 justify-between p-16 shadow-xl flex flex-col my-5 h-full rounded-md"
-       
+
         >
+        <form onSubmit={handleSubmit}>
           <div className="flex h-full justify-center">
             {isCompleted ? (
               <div className="w-3/4">
@@ -109,7 +132,7 @@ function Steps({ questions }) {
 const selectOptions = question.options.map((option, i) => {
   return (
     <div className="my-5 w-full rounded-md border-2 h-20" >
-      <input 
+      <input
         className={`text-2xl font-poppins w-full h-20 text-start pl-6 ${selectedOption === i ? "bg-light-blue" : ''}`}
         type="button"
         name={question.title}
@@ -129,7 +152,7 @@ const selectOptions = question.options.map((option, i) => {
 component = <div>{selectOptions}</div>;
 
     }
- 
+
      else {
       component = (
         <input
@@ -155,11 +178,11 @@ component = <div>{selectOptions}</div>;
         ''
     );
 })}
-                
+
               </div>
             )}
           </div>
-
+</form>
           <div className="flex flex-row justify-around">
             {isCompleted ? (
               <Button text="SUBMIT" onClick={() => {}} />
@@ -175,16 +198,9 @@ component = <div>{selectOptions}</div>;
                   }}
                 />
                 <Button
-                  text="NEXT"
-                  onClick={() => {
-                    if (currentStep !== questions.length - 1) {
-                      setCurrentStep(currentStep + 1);
-                    }
-                    if (currentStep === questions.length - 1) {
-                       setIsCompleted(true);
 
-                    }
-                  }}
+                  text="NEXT"
+                  onClick={handleSubmit}
                 />
               </>
             )}
@@ -197,7 +213,7 @@ component = <div>{selectOptions}</div>;
 
 
 
-// code for viewing of text 
+// code for viewing of text
 /* <input
                           className="h-1/2 border w-full font-poppins "
                           type="text"
@@ -259,5 +275,3 @@ export default function Booking() {
     </divi>
   );
 }
-
-
