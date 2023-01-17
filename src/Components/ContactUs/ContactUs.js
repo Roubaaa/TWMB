@@ -4,9 +4,10 @@ import { collection, addDoc } from "firebase/firestore";
 import {db} from "../../Firebase"
 // import { Link } from "react-router-dom";
 import image from "./Group.png";
+import { title } from "process";
 
 const  ContactUs = ()=> {
-
+title
   const[name , setName] = useState("");
   const[email , setEmail] = useState({});
   const[details , setDetails] = useState("");
@@ -127,10 +128,11 @@ console.log(questions)
   // }
 
   return (
-
+    
     <div>
 <div className="flex flex-wrap justify-center items-center">
   <div className="w-10/12	">
+    <h1>{title}</h1>
     <h1 className="	w-10/12 mt-10 font-normal font-sans text-2xl  md:text-3xl">SEND US YOUR REQUEST</h1>
     <h1 className=" mt-5 text-zinc-500 font-sans text-s sm:text-sm md:text-xl">Do you have a question, concern, idea, feedback, or problem? If you need assistance, please fill out the form below and we&apos;d be happy to help!</h1>
   </div>
