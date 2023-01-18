@@ -131,9 +131,8 @@ console.log(questions)
     <div>
 <div className="flex flex-wrap justify-center items-center">
   <div className="w-10/12	">
-    <h1>TWMB</h1>
     <h1 className="	w-10/12 mt-10 font-normal font-sans text-2xl  md:text-3xl">SEND US YOUR REQUEST</h1>
-    <h1 className=" mt-5 text-zinc-500 font-sans text-s sm:text-sm md:text-xl">Do you have a question, concern, idea, feedback, or problem? If you need assistance, please fill out the form below and we&apos;d be happy to help!</h1>
+    <h1 className=" mt-5 text-zinc-500 font-sans text-s sm:text-sm md:text-xl">Do you have a question, concern, idea, feedback, or problem? If you need assistance, please fill out the form below and we will be happy to help!</h1>
   </div>
 <div className="flex flex-row w-10/12	 mt-20 gap-56">
     <div className=" w-2/4 mt-6">

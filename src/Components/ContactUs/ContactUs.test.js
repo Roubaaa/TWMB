@@ -2,19 +2,20 @@ import React from "react";
 import { screen ,render } from "@testing-library/react";
 import ContactUs from "./ContactUs";
 
-test("renders learn react link", async() => {
-   render(
-      <ContactUs title ="TWMB" />
-  );
-const headingElement = screen.getByText(/twmb/i);
-  expect(headingElement).toBeInTheDocument();
-});
 
-it("title of the website", async() => {
+
+it("first header", async() => {
   render(
-     <ContactUs title ="TWMB" />
+     <ContactUs title ="SEND US YOUR REQUEST" />
  );
-const headingElement = screen.getByText(/twmb/i);
+const headingElement = screen.getByText(/SEND US YOUR REQUEST/i);
  expect(headingElement).toBeInTheDocument();
 });
 
+it("second header", async() => {
+  render(
+     <ContactUs title ="Do you have a question" />
+ );
+const headingElement = screen.getByText(/Do you have a question/i);
+ expect(headingElement).toBeInTheDocument();
+});
