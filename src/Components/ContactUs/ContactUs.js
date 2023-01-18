@@ -4,7 +4,6 @@ import { collection, addDoc } from "firebase/firestore";
 import {db} from "../../Firebase"
 // import { Link } from "react-router-dom";
 import image from "./Group.png";
-import { title } from "process";
 
 const  ContactUs = ()=> {
   const[name , setName] = useState("");
@@ -152,7 +151,7 @@ console.log(questions)
       </div>
     </div>
     <div className="">
-      <img src={image} alt='' className="sm:w-auto w-auto h-auto " />
+      <img  src={image} alt='' className="sm:w-auto w-auto h-auto " />
     </div>
 </div>
 
@@ -204,7 +203,7 @@ console.log(questions)
           <h1 className="ml-5 my-2 font-normal">Find US At:</h1>
           <h1 className="ml-5 font-light	text-gray-500		">Nergiz Plaza</h1>
           <h1 className="ml-5 font-light	text-gray-500		">3rd Floor</h1>
-          <h1 className="ml-5 font-light	text-gray-500		">Bakhtiyari Street 40m</h1>
+          <h1 title="Street"  className="ml-5 font-light	text-gray-500		">Bakhtiyari Street 40m</h1>
           <h1 className="ml-5 font-light	text-gray-500		">Erbil, Iraq</h1>
           <h1 className="ml-5 font-light	text-gray-500		">44001</h1>
         </div>
