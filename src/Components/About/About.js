@@ -8,6 +8,7 @@ export default function About() {
   return (
     <div>
       <div>
+        
 <h1 className="sm:px-48 px-2 pt-8 font-normal font-sans text-xl  md:text-2xl">HEALING!</h1>
 
 <p className="sm:px-48 px-2 text-zinc-500 font-sans text-xs sm:text-sm md:text-s ">some cool one liner!</p>

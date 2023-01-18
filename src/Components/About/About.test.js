@@ -1,20 +1,20 @@
 import React from "react";
 import { screen ,render } from "@testing-library/react";
-import ContactUs from "./ContactUs";
+import About from "./About";
 
 test("renders learn react link", async() => {
    render(
-      <ContactUs title ="TWMB" />
+      <About title ="Healing" />
   );
-const headingElement = screen.getByText(/twmb/i);
+const headingElement = screen.getByText(/about/i);
   expect(headingElement).toBeInTheDocument();
 });
 
+
 it("title of the website", async() => {
   render(
-     <ContactUs title ="TWMB" />
+     <About paragraph ="some cool one liner!" />
  );
-const headingElement = screen.getByText(/twmb/i);
+const headingElement = screen.getByText(/about/i);
  expect(headingElement).toBeInTheDocument();
 });
-
