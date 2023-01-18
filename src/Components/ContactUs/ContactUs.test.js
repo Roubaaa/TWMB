@@ -19,3 +19,55 @@ it("second header", async() => {
 const headingElement = screen.getByText(/Do you have a question/i);
  expect(headingElement).toBeInTheDocument();
 });
+
+it("title of the radio buttons", async() => {
+  render(
+     <ContactUs title ="Type of contact" />
+ );
+const headingElement = screen.getByText(/Type of contact/i);
+ expect(headingElement).toBeInTheDocument();
+});
+
+it("title of the contact", async() => {
+  render(
+     <ContactUs title ="Find US At:" />
+ );
+const headingElement = screen.getByText(/Find US At:/i);
+ expect(headingElement).toBeInTheDocument();
+});
+
+it("address line 1", async() => {
+  render(
+     <ContactUs title ="Nergiz Plaza" />
+ );
+const headingElement = screen.getByText(/Nergiz Plaza/i);
+ expect(headingElement).toBeInTheDocument();
+});
+it("address line 2", async() => {
+  render(
+     <ContactUs title ="3rd Floor" />
+ );
+const headingElement = screen.getByText(/3rd Floor/i);
+ expect(headingElement).toBeInTheDocument();
+});
+it("address line 3", async() => {
+  render(
+     <ContactUs title ="Bakhtiyari Street 40m" />
+ );
+const headingElement = screen.getByText(/Bakhtiyari Street 40m/i);
+ expect(headingElement).toBeInTheDocument();
+});
+it("City/Country", async() => {
+  render(
+     <ContactUs title ="Erbil, Iraq" />
+ );
+const headingElement = screen.getByText(/Erbil, Iraq/i);
+ expect(headingElement).toBeInTheDocument();
+});
+it("Zip code", async() => {
+  render(
+     <ContactUs title ="44001" />
+ );
+const headingElement = screen.getByText(/44001/i);
+ expect(headingElement).toBeInTheDocument();
+});
