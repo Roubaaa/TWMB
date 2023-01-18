@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { collection, addDoc } from "firebase/firestore";
 import {db} from "../../Firebase";
 import Button from './Button';
-import './booking.css';
+
 
 function Steps({ questions }) {
   const [currentStep, setCurrentStep] = useState(0);
   const [enteredData, setEnteredData] = useState({});
   const [isCompleted, setIsCompleted] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
 
 console.log(enteredData)
 
@@ -19,14 +20,6 @@ const handleSubmit = async (event) => {
       await addDoc(collection(db,'Q1Bokking'), {
       ...enteredData,
     });
-
-      if (currentStep !== questions.length - 1) {
-        setCurrentStep(currentStep + 1);
-      }
-      if (currentStep === questions.length - 1) {
-         setIsCompleted(true);
-
-      }
   };
 
 
@@ -128,7 +121,7 @@ const handleSubmit = async (event) => {
         });
         component = <div>{radioOptions}</div>;
     } else if (question.type === 'select') {
-      const [selectedOption, setSelectedOption] = useState(null);
+     
 const selectOptions = question.options.map((option, i) => {
   return (
     <div className="my-5 w-full rounded-md border-2 h-20" >
@@ -184,8 +177,8 @@ component = <div>{selectOptions}</div>;
           </div>
 </form>
           <div className="flex flex-row justify-around">
-            {isCompleted ? (
-              <Button text="SUBMIT" onClick={() => {}} />
+          {isCompleted && currentStep === questions.length - 1 ? (
+              <Button text="SUBMIT" onClick={handleSubmit} />
             ) : (
               <>
                 <Button
@@ -200,10 +193,19 @@ component = <div>{selectOptions}</div>;
                 <Button
 
                   text="NEXT"
-                  onClick={handleSubmit}
+                  onClick={() => {
+
+                    if (currentStep !== questions.length - 1) {
+                      setCurrentStep(currentStep + 1);
+                    }
+                    if (currentStep === questions.length - 1) {
+                       setIsCompleted(true);
+                    }
+                  }}
                 />
               </>
             )}
+
           </div>
         </div>
       </div>
@@ -213,18 +215,7 @@ component = <div>{selectOptions}</div>;
 
 
 
-// code for viewing of text
-/* <input
-                          className="h-1/2 border w-full font-poppins "
-                          type="text"
-                          value={enteredData[question.title]}
-                          onChange={(event) => {
-                            setEnteredData({
-                              ...enteredData,
-                              [question.title]: event.target.value,
-                            });
-                          }}
-                        /> */
+
 
 const questions = [
   {
