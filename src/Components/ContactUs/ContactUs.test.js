@@ -1,6 +1,7 @@
 import React from "react";
 import { screen ,render } from "@testing-library/react";
 import ContactUs from "./ContactUs";
+import userEvent from '@testing-library/user-event';
 
 
 //get By Text
@@ -83,12 +84,18 @@ const headingElement = screen.getByText(/Erbil, Iraq/i);
 });
 
 //get by role
-
 it("Zip code", async() => {
   render(
      <ContactUs title ="44001" />
  );
 const headingElement = screen.getByRole("heading", {name: "44001"});
  expect(headingElement).toBeInTheDocument();
+});
+
+//show error when all fields are not entered
+it("should show error message when all the fields are not entered", () => {
+  render(<ContactUs />);
+  const buttonElement = screen.getByRole("button");
+  userEvent.click(buttonElement);
 });
 
