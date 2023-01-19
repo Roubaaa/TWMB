@@ -1,9 +1,17 @@
 {
-    "env": {
-        "browser": true,
-        "node": true,
-        "es2021": true
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
     },
+  
+    "env": {
+    "browser": true,
+    "node": true,
+    "es2020": true,
+    "jest": true
+    },
+
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended"
@@ -11,27 +19,18 @@
     "overrides": [
     ],
     "parserOptions": {
-        "ecmaVersion": "latest", 
+        "ecmaVersion": 2020,
         "sourceType": "module",
         "ecmaFeatures": {
-          "jsx": true
-        }
+            "jsx": true
+  }
     },
     "plugins": [
         "react"
     ],
-    "rules": {
-        "indent": "off",
-        "linebreak-style": 0
-    },
 
-        "quotes": [
-            "error",
-            "double"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ]
-        
-    }
+    "rules": {
+        "react/prop-types": "off"
+      }
+  
+}

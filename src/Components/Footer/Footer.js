@@ -8,15 +8,14 @@ import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../Firebase/Firebase";
 
 
-
-
 export default function Footer() {
 
-  const [input, setInput] =useState(""); 
+const[input, setInput] = useState("") ; 
   const inputHandler = (e) => {
-    e.preventDefault();
-    setInput(e.target.value)
-  }; 
+  e.preventDefault();
+    setInput(e.target.value)    }; 
+
+
 
   const submitHandler = async (event) => {
     event.preventDefault();
@@ -26,6 +25,7 @@ export default function Footer() {
 
     setInput("")
   };
+  
   return (
 
       
