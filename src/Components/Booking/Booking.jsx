@@ -78,7 +78,7 @@ const handleSubmit = async (event) => {
       )}
 
 
-      <div style={{ height: '64vh' }} className="flex justify-center min-h-fit">
+      <div  className="flex justify-center min-h-fit h-auto">
         <div
           className="flex flex-col w-3/5 justify-between p-16 shadow-xl  my-5 h-full rounded-md"
 
