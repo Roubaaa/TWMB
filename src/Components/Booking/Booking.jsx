@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {useNavigate} from 'react-router-dom';
 import { collection, addDoc } from "firebase/firestore";
 import {db} from "../../Firebase";
 import Button from './Button';
@@ -9,18 +10,24 @@ function Steps({ questions }) {
   const [enteredData, setEnteredData] = useState({});
   const [isCompleted, setIsCompleted] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
+  const navigate = useNavigate()
+
 
 console.log(enteredData)
+console.log(currentStep)
 
 
 
 const handleSubmit = async (event) => {
-      event.preventDefault();
-      // console.log(newEmailInput);
-      await addDoc(collection(db,'Q1Bokking'), {
-      ...enteredData,
-    });
+  event.preventDefault();
+  // console.log(newEmailInput);
+  await addDoc(collection(db,'Q1Bokking'), {
+  ...enteredData,
+});
+  navigate('/');
   };
+
+
 
 
   return (
@@ -66,16 +73,17 @@ const handleSubmit = async (event) => {
           <p className="text-light-gray md:text-xl text-sm mb-1 font-poppins">
             Click Submit if you are sure of all your choices.
           </p>
+
         </div>
       )}
 
 
       <div style={{ height: '64vh' }} className="flex justify-center min-h-fit">
         <div
-          className="w-3/5 justify-between p-16 shadow-xl flex flex-col my-5 h-full rounded-md"
+          className="flex flex-col w-3/5 justify-between p-16 shadow-xl  my-5 h-full rounded-md"
 
         >
-        <form onSubmit={handleSubmit}>
+
           <div className="flex h-full justify-center">
             {isCompleted ? (
               <div className="w-3/4">
@@ -85,8 +93,11 @@ const handleSubmit = async (event) => {
                 <p className="text-2xl font-poppins text-center ">
                   Please be aware that this action will cost you a ticket!
                 </p>
+
               </div>
+
             ) : (
+
               <div className="w-full">
 
 
@@ -121,7 +132,7 @@ const handleSubmit = async (event) => {
         });
         component = <div>{radioOptions}</div>;
     } else if (question.type === 'select') {
-     
+
 const selectOptions = question.options.map((option, i) => {
   return (
     <div className="my-5 w-full rounded-md border-2 h-20" >
@@ -175,10 +186,13 @@ component = <div>{selectOptions}</div>;
               </div>
             )}
           </div>
-</form>
-          <div className="flex flex-row justify-around">
+
+          <div className="flex flex-row mt-16 justify-around">
           {isCompleted && currentStep === questions.length - 1 ? (
+
               <Button text="SUBMIT" onClick={handleSubmit} />
+
+
             ) : (
               <>
                 <Button
@@ -190,17 +204,17 @@ component = <div>{selectOptions}</div>;
                     }
                   }}
                 />
+
                 <Button
 
                   text="NEXT"
                   onClick={() => {
-
                     if (currentStep !== questions.length - 1) {
-                      setCurrentStep(currentStep + 1);
-                    }
-                    if (currentStep === questions.length - 1) {
-                       setIsCompleted(true);
-                    }
+          setCurrentStep(currentStep + 1);
+        }
+        if (currentStep === questions.length - 1) {
+           setIsCompleted(true);
+        }
                   }}
                 />
               </>
@@ -256,7 +270,7 @@ const questions = [
       'Eating disorders',
     ],
   },
-  { title: '', type: 'text' },
+  { title: 'What brings you here?', type: 'text' },
 ];
 
 export default function Booking() {
