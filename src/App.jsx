@@ -19,6 +19,7 @@ import CardDetails from "./Components/CardDetails/Carddetails"
 import Meet from "./Components/About/Meet"
 import LearnMore from "./Components/Home/LearnMore";
 import VerifyEmail from "./Components/VerifyEmail/VerifyEmail";
+import Career from "./Components/Career/Career";
 
 function App() {
 
@@ -51,6 +52,7 @@ useEffect(() => {
         <Route path="/meet" element={<Meet/>} />
         <Route path="/learnMore" element={<LearnMore />} />
         <Route path="/verify-email" element={<VerifyEmail/>} />
+        <Route path="/career" element={<Career/>} />
       </Routes>
 
   <Footer />
