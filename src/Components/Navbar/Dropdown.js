@@ -24,6 +24,7 @@ return(
     { isOpen && (
         <ul className= "navList bg-white rounded-md shadow-xl absolute top-20 flex flex-col p-2 items-start w-auto "> 
         <li className ="navList"><Link to="/meet">Meet</Link></li>
+        <li className ="navList"><Link to="/career">Careers</Link></li>
         </ul>
     )}
     </div>
