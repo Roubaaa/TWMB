@@ -135,7 +135,7 @@ const handleSubmit = async (event) => {
 
 const selectOptions = question.options.map((option, i) => {
   return (
-    <div  className="my-5 w-full rounded-md border-2 h-20" >
+    <div className="my-5 w-full rounded-md border-2 h-20" >
       <input
         className={`text-2xl font-poppins w-full h-20 text-start pl-6 ${selectedOption === i ? "bg-light-blue" : ''}`}
         type="button"
