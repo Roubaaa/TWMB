@@ -48,7 +48,7 @@ useEffect(() => {
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/contactUs" element={<ContactUs />} />
         <Route path="/account" element={<CreateAnAccount />} />
-
+        <Route path="/booking" element={<Booking />} /> 
         <Route path="/purchase" element={<PurchaseATicket />} />
         <Route path="/cards" element={<SelectCards/>} />
         <Route path="/carddetails" element={<CardDetails/>} />
