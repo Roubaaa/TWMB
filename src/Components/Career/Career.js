@@ -4,12 +4,12 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../Firebase/Firebase';
 
 function Careers() {
-  const [carees, setCarees] = useState([]);
+  const [careers, setCareers] = useState([]);
   const userCollectionRef = collection(db, 'careers');
   useEffect(() => {
     const fetchBlogImage = async () => {
       const data = await getDocs(userCollectionRef);
-      setCarees(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setCareers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
 
     fetchBlogImage();
@@ -41,7 +41,7 @@ function Careers() {
             What role will you play?
           </h1>
 
-          <Link to="/bookingPage" className="focus:text-[#FEE89E]">
+          <Link to="/booking" className="focus:text-[#FEE89E]">
             <button
               className="lg:mt-10 mt-5 bg-[#2DD3E3] hover:bg-blue-300 text-white  lg:text-[1.2vw]
                   font-bold py-2 text-[4vw] px-4 border-b-4 border-[#2DD3E3]  rounded"
@@ -68,31 +68,31 @@ function Careers() {
       </div>
       <div className="mx-auto lg:max-w-7xl px-10 py-10">
         <h1 className="text-4xl text-[#424A4F]">CURRENT OPEN POSITIONS</h1>
-        <p className="text-2xl opacity-50">
+        <h1 className="text-2xl opacity-50">
           Please send us an email with the application title as the subject with
           an attached CV in PDF format!
-        </p>
+        </h1>
       </div>
       <div>
-        {carees.map((caree) => {
+        {careers.map((career) => {
           return (
             // eslint-disable-next-line react/jsx-key
             <div className="mx-auto lg:max-w-7xl px-10 py-4">
               <div className="lg:flex lg:justify-between ">
                 <div className="lg:flex text-start lg:space-x-4 text-[#2DD3E3] text-3xl">
-                  <h1>{caree.title} |</h1>
-                  <h1>{caree.description} |</h1>
-                  <h1>{caree.place}</h1>
+                  <h1>{career.title} |</h1>
+                  <h1>{career.description} |</h1>
+                  <h1>{career.place}</h1>
                 </div>
                 <div>
                   <h1 className="text-[#2DD3E3] text-3xl text-start">
-                    {caree.degree}
+                    {career.degree}
                   </h1>
-                </div>
+                </div>  
               </div>
               <div className="lg:flex justify-between mb-6">
-                <p className="text-2xl">{caree.descriptions}</p>
-                <h1 className="lg:text-2xl  hidden">{caree.workon}</h1>
+                <h1 className="text-2xl">{career.descriptions}</h1>
+                <h1 className="lg:text-2xl  ">{career.working}</h1>
               </div>
               <hr />
             </div>
