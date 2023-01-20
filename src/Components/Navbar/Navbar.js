@@ -27,7 +27,7 @@ export default function Navbar() {
                     <Link to="/contactUs">Contact Us</Link>
                 </li>
                 
-                   <button type="button" className=" press bg-cyan-400 rounded-md shadow-md px-5 py-1 hover:bg-cyan-600 " > <Link to="/signIn">Log In </Link> </button>
+                   <button type="button" className=" press bg-cyan-400 rounded-md shadow-md px-5 py-1 hover:bg-cyan-600 " > <Link to="/signIn">Log In</Link> </button>
                 
               
             </ul>
