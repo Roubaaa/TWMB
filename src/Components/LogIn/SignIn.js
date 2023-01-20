@@ -6,12 +6,12 @@ import {useAuthValue} from "../../AuthContext/AuthContext";
 import MyImage from "./image.png";
 
 export default function SignIn() {
-
-  const [email, setEmail] = useState('')
-   const [password, setPassword] = useState('')
-   const [error, setError] = useState('')
-    const [setValue] = useState('')
-   const {setTimeActive} = useAuthValue()
+  
+const [email, setEmail] = useState('')
+const [password, setPassword] = useState('')
+const [error, setError] = useState('')
+const [setValue] = useState('')
+const {setTimeActive} = useAuthValue()
    const navigate = useNavigate()
 
    const login = e => {
