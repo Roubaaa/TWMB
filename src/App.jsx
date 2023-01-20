@@ -20,7 +20,7 @@ import Meet from "./Components/About/Meet"
 import LearnMore from "./Components/Home/LearnMore";
 import VerifyEmail from "./Components/VerifyEmail/VerifyEmail";
 import Career from "./Components/Career/Career";
-
+import Booking from "./Components/Booking/Booking";
 
 function App() {
 
@@ -50,6 +50,7 @@ useEffect(() => {
         <Route path="/purchase" element={<PurchaseATicket />} />
         <Route path="/cards" element={<SelectCards/>} />
         <Route path="/carddetails" element={<CardDetails/>} />
+        <Route path="/booking" element={<Booking />} /> 
         <Route path="/meet" element={<Meet/>} />
         <Route path="/learnMore" element={<LearnMore />} />
         <Route path="/verify-email" element={<VerifyEmail/>} />

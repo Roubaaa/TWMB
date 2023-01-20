@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
 import { collection, addDoc } from "firebase/firestore";
-import {db} from "../../Firebase";
+import {db} from "../../Firebase/Firebase";
 import Button from './Button';
 
 
@@ -108,6 +108,7 @@ const handleSubmit = async (event) => {
     if (question.type === 'radio') {
       const radioOptions = question.options.map((option) => {
             return (
+                // eslint-disable-next-line react/jsx-key
                 <div className="my-5">
                 <input
                     type="radio"
@@ -135,6 +136,7 @@ const handleSubmit = async (event) => {
 
 const selectOptions = question.options.map((option, i) => {
   return (
+    // eslint-disable-next-line react/jsx-key
     <div className="my-5 w-full rounded-md border-2 h-20" >
       <input
         className={`text-2xl font-poppins w-full h-20 text-start pl-6 ${selectedOption === i ? "bg-light-blue" : ''}`}
