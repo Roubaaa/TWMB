@@ -2,41 +2,39 @@ import React from "react";
 import { screen ,render } from "@testing-library/react";
 import ContactUs from "./ContactUs";
 import userEvent from '@testing-library/user-event';
+import renderer from "react-test-renderer";
 
+
+
+describe("contact component", ()=>{
+  //snapshot
+it ("render first header",()=>{
+  const fa = renderer.create(<ContactUs title ={"SEND US YOUR REQUEST"}/>).toJSON();
+  expect(fa).toMatchSnapshot();
+  
+})
+
+
+
+it ("second header",()=>{
+  const fa = renderer.create(<ContactUs title ={"Do you have a question"}/>).toJSON();
+  expect(fa).toMatchSnapshot();
+  
+})
+
+it ("radio button title",()=>{
+  const fa = renderer.create(<ContactUs title ={"Type of contact"}/>).toJSON();
+  expect(fa).toMatchSnapshot();
+  
+})
+
+it ("contact information",()=>{
+  const fa = renderer.create(<ContactUs title ={"Find US At:"}/>).toJSON();
+  expect(fa).toMatchSnapshot();
+  
+})
 
 //get By Text
-
-it("first header", async() => {
-  render(
-     <ContactUs title ="SEND US YOUR REQUEST" />
- );
-const headingElement = screen.getByText(/SEND US YOUR REQUEST/i);
- expect(headingElement).toBeInTheDocument();
-});
-
-it("second header", async() => {
-  render(
-     <ContactUs title ="Do you have a question" />
- );
-const headingElement = screen.getByText(/Do you have a question/i);
- expect(headingElement).toBeInTheDocument();
-});
-
-it("title of the radio buttons", async() => {
-  render(
-     <ContactUs title ="Type of contact" />
- );
-const headingElement = screen.getByText(/Type of contact/i);
- expect(headingElement).toBeInTheDocument();
-});
-
-it("title of the contact", async() => {
-  render(
-     <ContactUs title ="Find US At:" />
- );
-const headingElement = screen.getByText(/Find US At:/i);
- expect(headingElement).toBeInTheDocument();
-});
 
 it("address line 1", async() => {
   render(
@@ -98,4 +96,4 @@ it("should show error message when all the fields are not entered", () => {
   const buttonElement = screen.getByRole("button");
   userEvent.click(buttonElement);
 });
-
+});
