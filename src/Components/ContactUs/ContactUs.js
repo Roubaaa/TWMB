@@ -28,7 +28,7 @@ if (data==='first'){
       setQuestion("I have a question about the service.")
      }
     setFirst(!first)
-  };
+  }
 
 
   if (data==='second'){
@@ -36,41 +36,41 @@ if (data==='first'){
         setQuestion("I am a registered client and I need support.")
        }
       setSecond(!second)
-    };
+    }
 
 if (data==='third'){
          if (third===true) {
           setQuestion("I am a counselor interested in joining.")
          }
         setThird(!third)
-      };
+      }
 
 if (data==='fourth'){
            if (fourth===true) {
             setQuestion("I am a registered counselor and I need support.")
            }
           setFourth(!fourth)
-        };
+        }
 
 if (data==='fifth'){
              if (fifth===true) {
               setQuestion("I have a business-related inquiry.")
              }
             setFifth(!fifth)
-          };
+          }
 if (data==='sixth'){
                if (sixth===true) {
                 setQuestion("I am interested in Healing Online for my organization.")
                }
               setSixth(!sixth)
-            };
+            }
 
 if (data==='seventh'){
                  if (seventh===true) {
                   setQuestion("I have a billing related question.")
                  }
                 setSeventh(!seventh)
-              };
+              }
 
 };
 

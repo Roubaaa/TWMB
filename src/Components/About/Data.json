@@ -1,0 +1,30 @@
+{
+    "english":{
+        "Title":"HEALING!",
+        "Description":"some cool one liner!",
+        "Paragraph":"At Healing, we believe there is a better way to do things. A more valuable way where customers are earned rather than bought. We re obsessively passionate about it, and our mission is to help people achieve it.We focus on search engine optimization. It s one of the least understood and least transparent aspects of great marketing, and we see that as an opportunity. We re excited to simplify SEO for everyone through our software, education, and community.",
+        "h2":"Our Founding",
+        "p":"Healing was founded by Payam Abubakr in 2021. It was called Healing Online, and started as a blog and an online community where some of the world s therapists shared their research and ideas. We launched the Beginner s Guide to Therapy and our first study, and that hub of industry expertise transformed into a small consulting firm and led us to create the Online Therapist of today!",
+        "Meeth1":"WE ARE HEALING, NICE TO MEET YOU!",
+        "Meetp":"Meet the Team!"
+    },
+    "kurdish":{
+        "Title":"چاکبوونەوە!",
+        "Description":"هەندێک هێلی جوان",
+        "Paragraph":"لە هیلینگ ئێمە پێمان وایە کە رێگەی باشتر هەیە بۆ کردنی شتەکان ڕێگەی بەنرختر کە چارەخواز بتوانێت قازانج بکات لەجیاتی کڕین ئێمە بەخولیا وپەرۆشین دەربارەی ئەوە وە ئەرکەکەمان ئەوەیە کە یارمەتی خەلک بدەین بۆ گەیشتنی بە چارەسەر ئێمە سەرنج دەدەینە سەر باشترکردنی بزوێنەری گەران ئێمە ئەوە وەک دەرفەتێک دەبینین بۆ ئاسانکردنی وەرگرتنی چارەسەر بۆ هەموو کەسێک کە ئەوە لەئێستادا لە بازاری ئۆنلایندا کەمە لەرێگەی پەرەسەندنی مالپەرە ئەلیکترۆنیەکەمان",
+        "h2":"بنیاتمانمان",
+        "p":"هیلینگ دۆزرایەوە لەلایەن پەیام ئەبووبەکر لەسالی 2021. پێیگۆترا هیلینگی ئۆنلاین دەستی کرد بە بلۆگکردن  و کە کۆمەلگەی چارەسەرکردنی ئۆنلاین بیرۆکەو گەرانەکانیان لەگەلدا شەیرکردین ئێمە ڕێنیشاندەری دەستپێکەرمان دەستپیکرد بۆ چارەسەرکردن و یەکەم لێکۆلینەوەمان کە بووە هۆی تەوەری شارەزایی پیشەسازی بۆ کۆمپانیای ڕاوێژکاری بچووک و وایلێکردین  کە چارەسەری ئۆنلاین دروست بکەین",
+        "Meeth1":"ئێمە چارەسەردەکەین ،خۆشحالین بەناسینت",
+        "Meetp":"تیمەکەمان بناسە"
+    },
+    "arabic":{
+        "Title":"شفاء!",
+        "Description":"بعض الخطوط الرائعة!",
+        "Paragraph":"في شفاء ، نعتقد أن هناك طريقة أفضل للقيام بالأشياء. طريقة أكثر قيمة حيث يتم كسب العملاء بدلاً من شرائهم. نحن متحمسون بشدة لذلك ، ومهمتنا هي مساعدة الناس على تحقيق ذلك ، ونركز على تحسين محرك البحث. إنه أحد الجوانب الأقل فهماً والأقل شفافية للتسويق الرائع ، ونرى ذلك كفرصة. نحن متحمسون لتبسيط تحسين محركات البحث للجميع من خلال برامجنا وتعليمنا ومجتمعنا.",
+        "h2":"تأسيسنا",
+        "p":"تم تأسيس هيلينك بواسطة بةيام ابوبكر في عام 2021. وقد أطلق عليها اسم هيلينك اونلاين ، وبدأت كمدونة ومجتمع عبر الإنترنت حيث شارك بعض المعالجين في العالم أبحاثهم وأفكارهم. أطلقنا دليل المبتدئين للعلاج ودراستنا الأولى ، وتحول هذا المحور من الخبرة الصناعية إلى شركة استشارية صغيرة وقادنا إلى إنشاء المعالج عبر الإنترنت اليوم!",
+        "Meeth1":"نحن نتعافى ، لطيف لمقابلتك!",
+        "Meetp":"قابل الفريق!"
+    
+    }
+}
