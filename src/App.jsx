@@ -21,6 +21,7 @@ import LearnMore from "./Components/Home/LearnMore";
 import VerifyEmail from "./Components/VerifyEmail/VerifyEmail";
 import Career from "./Components/Career/Career";
 import Booking from "./Components/Booking/Booking";
+import GoogleTranslate from "./Components/GoogleTranslate"
 
 function App() {
 
@@ -36,6 +37,9 @@ useEffect(() => {
   return (
   <AuthProvider  value={{currentUser, timeActive, setTimeActive}}>
   <div>
+
+  <GoogleTranslate/>
+  
       <Navbar />
 
       <Routes>
