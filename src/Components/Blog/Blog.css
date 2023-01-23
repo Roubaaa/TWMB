@@ -26,4 +26,9 @@ p{
     line-height: 48px;
     text-transform:uppercase;
     }
-    
+.title{
+        font-family: 'Poppins';
+        font-style: normal;
+        line-height: 0.7;
+
+    }

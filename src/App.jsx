@@ -21,6 +21,8 @@ import LearnMore from "./Components/Home/LearnMore";
 import VerifyEmail from "./Components/VerifyEmail/VerifyEmail";
 import Career from "./Components/Career/Career";
 import Booking from "./Components/Booking/Booking";
+import TraumaBlog from "./Components/Blog/TraumaBlog";
+import Depression from "./Components/Blog/Depression";
 import GoogleTranslate from "./Components/GoogleTranslate"
 
 function App() {
@@ -39,7 +41,7 @@ useEffect(() => {
   <div>
 
   <GoogleTranslate/>
-  
+
       <Navbar />
 
       <Routes>
@@ -47,6 +49,8 @@ useEffect(() => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/blogs" element={<Blog />} />
+        <Route path="/traumaBlog" element={<TraumaBlog />} />
+        <Route path="/depression" element={<Depression />} />
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/contactUs" element={<ContactUs />} />
@@ -54,7 +58,7 @@ useEffect(() => {
         <Route path="/purchase" element={<PurchaseATicket />} />
         <Route path="/cards" element={<SelectCards/>} />
         <Route path="/carddetails" element={<CardDetails/>} />
-        <Route path="/booking" element={<Booking />} /> 
+        <Route path="/booking" element={<Booking />} />
         <Route path="/meet" element={<Meet/>} />
         <Route path="/learnMore" element={<LearnMore />} />
         <Route path="/verify-email" element={<VerifyEmail/>} />
@@ -69,4 +73,3 @@ useEffect(() => {
 }
 
 export default App;
-
