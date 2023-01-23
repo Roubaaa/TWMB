@@ -1,4 +1,4 @@
-{/* import React, { useState } from 'react';
+import React, { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
 import { collection, addDoc } from "firebase/firestore";
 import {db} from "../../Firebase/Firebase";
@@ -108,7 +108,7 @@ const handleSubmit = async (event) => {
     if (question.type === 'radio') {
       const radioOptions = question.options.map((option) => {
             return (
-                <div className="my-5">
+                <div  key={questions.id}  className="my-5">
                 <input
                     type="radio"
                     name={question.title}
@@ -135,7 +135,7 @@ const handleSubmit = async (event) => {
 
 const selectOptions = question.options.map((option, i) => {
   return (
-    <div className="my-5 w-full rounded-md border-2 h-20" >
+    <div  key={questions.id}  className="my-5 w-full rounded-md border-2 h-20" >
       <input
         className={`text-2xl font-poppins w-full h-20 text-start pl-6 ${selectedOption === i ? "bg-light-blue" : ''}`}
         type="button"
@@ -280,4 +280,3 @@ export default function Booking() {
     </divi>
   );
 }
-*/}
