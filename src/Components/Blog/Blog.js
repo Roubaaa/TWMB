@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import "./Blog.css";
 import { IoPaperPlane } from "react-icons/io5";
 import BlogItem from "./BlogItem";
@@ -9,10 +10,10 @@ import { db } from "../../Firebase/Firebase";
 
 export default function Blog(){
 
-  const[input, setInput] = useState("") ; 
+  const[input, setInput] = useState("") ;
   const inputHandler = (e) => {
   e.preventDefault();
-    setInput(e.target.value)    }; 
+    setInput(e.target.value)    };
 
 
 
@@ -51,8 +52,10 @@ export default function Blog(){
 
 <p className="titleThree pt-32 sm:text-[32px] text-[15px]">Recommended For you</p>
 <div className="flex sm:flex-row flex-col justify-end my-8">
-<button type="button"><img src={blogSecond} alt="puzzle" /></button>
-<button type="button"><img src={blogThird} alt="overthinking" /></button>
+<Link to="/traumaBlog" >
+<button type="button"><img src={blogSecond} alt="puzzle" /></button></Link>
+<Link to="/depression" >
+<button type="button"><img src={blogThird} alt="overthinking" /></button></Link>
 </div>
 </div>
 </div>)
