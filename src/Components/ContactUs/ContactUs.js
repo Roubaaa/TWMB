@@ -1,7 +1,7 @@
 import React ,{useState} from "react";
 import "./ContactUs.css";
 import { collection, addDoc } from "firebase/firestore";
-import {db} from "../../Firebase"
+import {db} from "../../Firebase/Firebase"
 // import { Link } from "react-router-dom";
 import image from "./Group.png";
 
@@ -27,7 +27,7 @@ if (data==='first'){
       setQuestion("I have a question about the service.")
      }
     setFirst(!first)
-  };
+  }
 
 
   if (data==='second'){
@@ -35,41 +35,41 @@ if (data==='first'){
         setQuestion("I am a registered client and I need support.")
        }
       setSecond(!second)
-    };
+    }
 
 if (data==='third'){
          if (third===true) {
           setQuestion("I am a counselor interested in joining.")
          }
         setThird(!third)
-      };
+      }
 
 if (data==='fourth'){
            if (fourth===true) {
             setQuestion("I am a registered counselor and I need support.")
            }
           setFourth(!fourth)
-        };
+        }
 
 if (data==='fifth'){
              if (fifth===true) {
               setQuestion("I have a business-related inquiry.")
              }
             setFifth(!fifth)
-          };
+          }
 if (data==='sixth'){
                if (sixth===true) {
                 setQuestion("I am interested in Healing Online for my organization.")
                }
               setSixth(!sixth)
-            };
+            }
 
 if (data==='seventh'){
                  if (seventh===true) {
                   setQuestion("I have a billing related question.")
                  }
                 setSeventh(!seventh)
-              };
+              }
 
 };
 
@@ -98,7 +98,7 @@ if (data==='seventh'){
     event.preventDefault();
     // console.log(newEmailInput);
     await addDoc(collection(db, 'contactdata'), {
-      ...email,questions 
+      ...email,questions
     }).then(() => {
        alert('Message has been submitted');})
     // Clear the form

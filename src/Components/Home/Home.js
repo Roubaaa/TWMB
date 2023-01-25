@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Home.css';
 import Background from './homeimages/background.png';
 import Pic1 from './homeimages/main-image.png';
@@ -7,17 +8,31 @@ import Pic3 from './homeimages/therapist2.jpg';
 import Pic4 from './homeimages/therapist3.jpg';
 import Pic5 from './homeimages/therapist4.jpg';
 import Pic6 from './homeimages/therapist5.jpg';
+import truamaimage from "../Blog/TraumaBlog.png";
+import depressionImage from "../Blog/depression.png";
+import blogImage from "../Blog/firstPic.png";
 import Button1 from './button';
 import PurchaseATicket from "../PurchaseATicket/PurchaseATicket";
 
 
 
-
-// import { Link } from "react-router-dom";
-
-
 export default function Home() {
-  
+
+
+  const [isSignedIn, setIsSignedIn] = useState(false);
+
+  useEffect(() => {
+    setIsSignedIn(localStorage.getItem('isSignedIn') === 'true');
+  }, []);
+
+  const handleClick = () => {
+    if (!isSignedIn) {
+      alert("Please sign in to book an appointment.");
+      return;
+    }
+
+  };
+
   return (
 
 <div >
@@ -29,7 +44,13 @@ export default function Home() {
 <div className="w-2/4 ml-48 -mt-20 center">
 <p className="font-style font-bold text-3xl">WE ARE HERE TO</p>
 <p className="font-style font-bold text-8xl">HELP</p>
-<Button1  p="BOOK AN APPOINTMENT"/>
+{/* <Link to="/booking">
+<Button1  p="BOOK AN APPOINTMENT"/></Link> */}
+  <div className="ml-4 pb-20">
+         <Link to="/booking">
+         <Button1 p="BOOK AN APPOINTMENT" onClick={handleClick} />
+         </Link>
+       </div>
 </div>
 <div className="w-3/4 -mt-32 mr-20"><img src={Pic1} alt="background" className=""/></div>
 </div>
@@ -47,6 +68,7 @@ export default function Home() {
 </div>
 <p className="font-style  font-bold text-xl pt-14  mr-32">Tap into the world largest network of licensed, accredited, and experienced therapists who can help you with a range of issues including depression, anxiety, relationships, trauma, grief, and more. with our therapists, you get the same professionalism and quality you would expect from an in-office therapist, but with the ability to communicate whenever and however you want.</p>
 <div className="ml-4 pb-20"><Button1  p="BOOK AN APPOINTMENT"/></div>
+
 </div>
 
 
@@ -95,55 +117,78 @@ export default function Home() {
 <div className="slider ml-16">
     <div className="slides">
       <div id="slides__1" className="slide1 flex  ">
+       <Link to="/traumaBlog">
+       <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
+       <img src={truamaimage} alt="pic1"  className="w-80 h-56"/>
+      </div></Link>
+       <Link to="/depression">
+       <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
+       <img src={depressionImage} alt="pic1"  className="w-80 h-56"/>
 
+      </div></Link>
+        <Link to="/blogs">
        <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
-      v
-       </div>
-       <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
-      v
-       </div>
-       <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
-      v
-       </div>
+
+       <img src={blogImage} alt="pic1"  className="w-80 h-56"/>
+
+      </div></Link>
         <a className="slide__prev" href="#slides__4" title="Next">.</a>
         <a className="slide__next" href="#slides__2" title="Next">.</a>
       </div>
       <div id="slides__2" className="slide1 ">
+      <Link to="/traumaBlog">
       <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
-     v
-      </div>
+      <img src={truamaimage} alt="pic1"  className="w-80 h-56"/>
+     </div></Link>
+      <Link to="/depression">
       <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
-     v
-      </div>
+      <img src={depressionImage} alt="pic1"  className="w-80 h-56"/>
+
+     </div></Link>
+       <Link to="/blogs">
       <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
-     v
-      </div>
+
+      <img src={blogImage} alt="pic1"  className="w-80 h-56"/>
+
+     </div></Link>
         <a className="slide__prev" href="#slides__1" title="Prev">.</a>
         <a className="slide__next" href="#slides__3" title="Next" >.</a>
       </div>
       <div id="slides__3" className="slide1">
+      <Link to="/traumaBlog">
       <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
-     v
-      </div>
+      <img src={truamaimage} alt="pic1"  className="w-80 h-56"/>
+     </div></Link>
+      <Link to="/depression">
       <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
-     v
-      </div>
+      <img src={depressionImage} alt="pic1"  className="w-80 h-56"/>
+
+     </div></Link>
+       <Link to="/blogs">
       <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
-     v
-      </div>
+
+      <img src={blogImage} alt="pic1"  className="w-80 h-56"/>
+
+     </div></Link>
         <a className="slide__prev" href="#slides__2" title="Prev" >.</a>
         <a className="slide__next" href="#slides__4" title="Next" >.</a>
       </div>
       <div id="slides__4" className="slide1">
+      <Link to="/traumaBlog">
       <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
-     v
-      </div>
+      <img src={truamaimage} alt="pic1"  className="w-80 h-56"/>
+     </div></Link>
+      <Link to="/depression">
       <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
-     v
-      </div>
+      <img src={depressionImage} alt="pic1"  className="w-80 h-56"/>
+
+     </div></Link>
+       <Link to="/blogs">
       <div className="w-80 h-56 bg-white text-white mr-5 rounded-lg">
-     v
-      </div>
+
+      <img src={blogImage} alt="pic1"  className="w-80 h-56"/>
+
+     </div></Link>
         <a className="slide__prev" href="#slides__3" title="Prev">.</a>
         <a className="slide__next" href="#slides__1" title="Prev" >.</a>
       </div>
