@@ -12,8 +12,6 @@ describe('Booking', () => {
       });
 
 
-
-
     //   for select part
   it('sets the initial selected option to null', () => {
     const { getByText } = render(<Booking />);

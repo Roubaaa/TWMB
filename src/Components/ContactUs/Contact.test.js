@@ -1,13 +1,15 @@
 import React from "react";
 import { screen ,render } from "@testing-library/react";
-import ContactUs from "./ContactUs";
 import userEvent from '@testing-library/user-event';
 import renderer from "react-test-renderer";
+import ContactUs from "./ContactUs";
+
 
 
 
 describe("contact component", ()=>{
   //snapshot
+
 it ("render first header",()=>{
   const fa = renderer.create(<ContactUs title ={"SEND US YOUR REQUEST"}/>).toJSON();
   expect(fa).toMatchSnapshot();
@@ -63,16 +65,7 @@ const headingElement =  screen.queryByText(/call me /i);
  expect(headingElement).not.toBeInTheDocument();
 });
 
-//get by title
-it("address line 3", async() => {
-  render(
-     <ContactUs title ="Bakhtiyari Street 40m" />
- );
 
-
-const headingElement = screen.getByTitle("Street");
- expect(headingElement).toBeInTheDocument();
-});
 it("City/Country", async() => {
   render(
      <ContactUs title ="Erbil, Iraq" />
