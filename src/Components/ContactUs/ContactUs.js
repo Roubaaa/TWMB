@@ -6,7 +6,6 @@ import {db} from "../../Firebase/Firebase"
 import image from "./Group.png";
 
 const  ContactUs = ()=> {
-
   const[name , setName] = useState("");
   const[email , setEmail] = useState({});
   const[details , setDetails] = useState("");
@@ -127,12 +126,12 @@ console.log(questions)
   // }
 
   return (
-
+    
     <div>
 <div className="flex flex-wrap justify-center items-center">
   <div className="w-10/12	">
     <h1 className="	w-10/12 mt-10 font-normal font-sans text-2xl  md:text-3xl">SEND US YOUR REQUEST</h1>
-    <h1 className=" mt-5 text-zinc-500 font-sans text-s sm:text-sm md:text-xl">Do you have a question, concern, idea, feedback, or problem? If you need assistance, please fill out the form below and we&apos;d be happy to help!</h1>
+    <h1 className=" mt-5 text-zinc-500 font-sans text-s sm:text-sm md:text-xl">Do you have a question, concern, idea, feedback, or problem? If you need assistance, please fill out the form below and we will be happy to help!</h1>
   </div>
 <div className="flex flex-row w-10/12	 mt-20 gap-56">
     <div className=" w-2/4 mt-6">
@@ -152,7 +151,7 @@ console.log(questions)
       </div>
     </div>
     <div className="">
-      <img src={image} alt='' className="sm:w-auto w-auto h-auto " />
+      <img  src={image} alt='' className="sm:w-auto w-auto h-auto " />
     </div>
 </div>
 
@@ -204,7 +203,7 @@ console.log(questions)
           <h1 className="ml-5 my-2 font-normal">Find US At:</h1>
           <h1 className="ml-5 font-light	text-gray-500		">Nergiz Plaza</h1>
           <h1 className="ml-5 font-light	text-gray-500		">3rd Floor</h1>
-          <h1 className="ml-5 font-light	text-gray-500		">Bakhtiyari Street 40m</h1>
+          <h1 title="Street"  className="ml-5 font-light	text-gray-500		">Bakhtiyari Street 40m</h1>
           <h1 className="ml-5 font-light	text-gray-500		">Erbil, Iraq</h1>
           <h1 className="ml-5 font-light	text-gray-500		">44001</h1>
         </div>
